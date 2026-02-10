@@ -1,0 +1,85 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-10T09:14:14.831Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 3,
+    "implemented": 3,
+    "items": [
+      {
+        "id": "REQ-17",
+        "summary": "Update all user-facing coverage/region marketing copy to state KK Euro Express ships across Europe and also to international destinations, explicitly mentioning example destinations: UK, USA, Canada, and Italy (and wording like “and more”). Apply this consistently across pages/components that currently mention “Punjab” coverage (e.g., Home hero headline/paragraph, About page hero and overview copy, About “Our Coverage” intro, CoverageSection, ValueProps, HowItWorks step text, ServicesPreview descriptions, and footer brand blurb).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/pages/AboutPage.tsx",
+          "frontend/src/components/site/CoverageSection.tsx",
+          "frontend/src/components/site/ValueProps.tsx",
+          "frontend/src/components/site/HowItWorks.tsx",
+          "frontend/src/components/site/ServicesPreview.tsx",
+          "frontend/src/components/site/SiteFooter.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/pages/AboutPage.tsx",
+          "frontend/src/components/site/CoverageSection.tsx",
+          "frontend/src/components/site/ValueProps.tsx",
+          "frontend/src/components/site/HowItWorks.tsx",
+          "frontend/src/components/site/ServicesPreview.tsx",
+          "frontend/src/components/site/SiteFooter.tsx"
+        ]
+      },
+      {
+        "id": "REQ-18",
+        "summary": "Increase the prominence of “Contact Us” across the site by adding stronger, more frequent contact CTAs without changing the existing contact details (email/phone/24/7). Implement at least: (1) a prominent Contact CTA in the site header on desktop, and (2) an additional Contact/Quote CTA section on the Services page that links to /contact.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/site/SiteHeader.tsx",
+          "frontend/src/pages/ServicesPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/site/SiteHeader.tsx",
+          "frontend/src/pages/ServicesPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-19",
+        "summary": "Ensure the Contact page “Contact Information” panel does not display unrelated placeholder contact values when backend contact details are not yet loaded; it must default to the known business email and phone already used in the footer.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/site/ContactDetails.tsx",
+          "frontend/src/pages/ContactPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/site/ContactDetails.tsx",
+          "frontend/src/pages/ContactPage.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/components/site/ContactDetails.tsx",
+    "frontend/src/components/site/CoverageSection.tsx",
+    "frontend/src/components/site/HowItWorks.tsx",
+    "frontend/src/components/site/ServicesPreview.tsx",
+    "frontend/src/components/site/SiteFooter.tsx",
+    "frontend/src/components/site/SiteHeader.tsx",
+    "frontend/src/components/site/ValueProps.tsx",
+    "frontend/src/pages/AboutPage.tsx",
+    "frontend/src/pages/ContactPage.tsx",
+    "frontend/src/pages/HomePage.tsx",
+    "frontend/src/pages/ServicesPage.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

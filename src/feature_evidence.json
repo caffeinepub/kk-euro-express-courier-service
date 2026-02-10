@@ -1,0 +1,70 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-update-all-user-facing-coverage-region-marketing-copy-to-state-kk-euro-express-ships-across-europe-and-also-to-international-destinations-explicitly-mentioning-example-destinations-uk-usa-canada-and-italy-and-wording-like-and-more-apply-this-consistently-across-pages-components-that-currently-mention-punjab-coverage-e-g-home-hero-headline-paragraph-about-page-hero-and-overview-copy-about-our-coverage-intro-coveragesection-valueprops-howitworks-step-text-servicespreview-descriptions-and-footer-brand-blurb",
+      "featureTitle": "Update all user-facing coverage/region marketing copy to state KK Euro Express ships across Europe and also to international destinations, explicitly mentioning example destinations: UK, USA, Canada, and Italy (and wording like “and more”). Apply this consistently across pages/components that currently mention “Punjab” coverage (e.g., Home hero headline/paragraph, About page hero and overview copy, About “Our Coverage” intro, CoverageSection, ValueProps, HowItWorks step text, ServicesPreview descriptions, and footer brand blurb).",
+      "files": [
+        "frontend/src/components/site/CoverageSection.tsx",
+        "frontend/src/components/site/HowItWorks.tsx",
+        "frontend/src/components/site/ServicesPreview.tsx",
+        "frontend/src/components/site/SiteFooter.tsx",
+        "frontend/src/components/site/ValueProps.tsx",
+        "frontend/src/pages/AboutPage.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-17"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-increase-the-prominence-of-contact-us-across-the-site-by-adding-stronger-more-frequent-contact-ctas-without-changing-the-existing-contact-details-email-phone-24-7-implement-at-least-1-a-prominent-contact-cta-in-the-site-header-on-desktop-and-2-an-additional-contact-quote-cta-section-on-the-services-page-that-links-to-contact",
+      "featureTitle": "Increase the prominence of “Contact Us” across the site by adding stronger, more frequent contact CTAs without changing the existing contact details (email/phone/24/7). Implement at least: (1) a prominent Contact CTA in the site header on desktop, and (2) an additional Contact/Quote CTA section on the Services page that links to /contact.",
+      "files": [
+        "frontend/src/components/site/SiteHeader.tsx",
+        "frontend/src/pages/ServicesPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-18"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-the-contact-page-contact-information-panel-does-not-display-unrelated-placeholder-contact-values-when-backend-contact-details-are-not-yet-loaded-it-must-default-to-the-known-business-email-and-phone-already-used-in-the-footer",
+      "featureTitle": "Ensure the Contact page “Contact Information” panel does not display unrelated placeholder contact values when backend contact details are not yet loaded; it must default to the known business email and phone already used in the footer.",
+      "files": [
+        "frontend/src/components/site/ContactDetails.tsx",
+        "frontend/src/pages/ContactPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-19"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

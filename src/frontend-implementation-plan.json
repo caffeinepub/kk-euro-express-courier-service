@@ -1,0 +1,98 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Europe-wide coverage messaging update + stronger Contact Us CTAs",
+  "requirements": [
+    {
+      "id": "REQ-17",
+      "summary": "Replace all Punjab-specific coverage marketing copy with consistent Europe-wide + international destinations messaging (UK/USA/Canada/Italy and “and more”) across the site.",
+      "acceptanceCriteria": [
+        "Home page hero headline/paragraph no longer says “Punjab-Wide Deliveries” or “across Punjab”; it references Europe-wide service and includes examples (UK/USA/Canada/Italy) in natural English.",
+        "About page hero paragraph, “Who We Are” paragraphs, and “Our Coverage” intro text reference Europe-wide coverage and include example destinations (UK/USA/Canada/Italy).",
+        "CoverageSection titles/descriptions no longer say “Punjab-Wide Network” / “throughout Punjab” and instead describe Europe-wide coverage plus example destinations (UK/USA/Canada/Italy).",
+        "ValueProps contains no “Punjab-Wide Coverage” title/description; the replacement reflects Europe-wide + example destinations.",
+        "HowItWorks step 2 description no longer says “Punjab-wide network”; it reflects Europe-wide shipping (plus global destinations examples where appropriate).",
+        "Footer brand description no longer says “across Punjab”; it aligns with Europe-wide + example destinations messaging.",
+        "No page introduces conflicting coverage statements (e.g., some sections saying Punjab while others say Europe)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Update hero headline and paragraph marketing copy to remove Punjab references and instead state KK Euro Express ships across Europe and to international destinations, explicitly mentioning example destinations (UK, USA, Canada, Italy) and “and more” in natural English."
+        },
+        {
+          "path": "frontend/src/pages/AboutPage.tsx",
+          "operation": "modify",
+          "description": "Update About hero paragraph, “Who We Are” overview paragraphs, and “Our Coverage” intro copy to consistently describe Europe-wide coverage plus international destinations, explicitly mentioning UK, USA, Canada, Italy (and “and more”)."
+        },
+        {
+          "path": "frontend/src/components/site/CoverageSection.tsx",
+          "operation": "modify",
+          "description": "Replace “Punjab-Wide Network” / “throughout Punjab” wording with Europe-wide coverage messaging and include example destinations (UK, USA, Canada, Italy) where appropriate, keeping tone consistent with the rest of the site."
+        },
+        {
+          "path": "frontend/src/components/site/ValueProps.tsx",
+          "operation": "modify",
+          "description": "Update the value prop currently titled/worded as “Punjab-Wide Coverage” to instead reflect Europe-wide shipping and international destinations (include examples: UK/USA/Canada/Italy and “and more”). Also remove other Punjab-specific phrasing (e.g., in speed/coverage descriptions) where present to avoid conflicting statements."
+        },
+        {
+          "path": "frontend/src/components/site/HowItWorks.tsx",
+          "operation": "modify",
+          "description": "Update step 2 description to remove “Punjab-wide network” and replace with Europe-wide shipping language; include international destination examples (UK/USA/Canada/Italy and “and more”) if it reads naturally in the step."
+        },
+        {
+          "path": "frontend/src/components/site/ServicesPreview.tsx",
+          "operation": "modify",
+          "description": "Update any service preview descriptions that mention Punjab coverage to align with Europe-wide coverage and international destinations messaging; ensure examples (UK/USA/Canada/Italy and “and more”) appear where appropriate and do not conflict with other sections."
+        },
+        {
+          "path": "frontend/src/components/site/SiteFooter.tsx",
+          "operation": "modify",
+          "description": "Update the footer brand blurb to remove “across Punjab” and replace with Europe-wide + international destinations messaging including examples (UK/USA/Canada/Italy and “and more”), while keeping the existing footer contact details unchanged."
+        }
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "summary": "Make “Contact Us” more prominent by adding a clear desktop header Contact CTA and adding a Services page contact/quote CTA section linking to /contact (without changing existing contact details).",
+      "acceptanceCriteria": [
+        "On desktop widths, the header includes a clearly visible “Contact” / “Contact Us” call-to-action element that links to /contact (in addition to existing nav links).",
+        "Services page includes a distinct CTA block encouraging users to contact for a quote/help, with a button linking to /contact.",
+        "Existing footer contact information remains unchanged: eurobanga@gmail.com, 79736-73529, Available 24/7."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/site/SiteHeader.tsx",
+          "operation": "modify",
+          "description": "Add a prominent desktop-only “Contact”/“Contact Us” CTA element (e.g., a distinct Button-style link) that navigates to /contact, while keeping the existing navigation links intact and preserving the current mobile menu behavior."
+        },
+        {
+          "path": "frontend/src/pages/ServicesPage.tsx",
+          "operation": "modify",
+          "description": "Add a distinct Contact/Quote CTA block section on the Services page that encourages users to request a quote/help and includes a button linking to /contact. Ensure this is visually prominent and does not alter existing footer contact details."
+        }
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "summary": "Ensure the Contact page Contact Information panel defaults to the known business email and phone when backend contact details are unavailable, avoiding placeholder values.",
+      "acceptanceCriteria": [
+        "ContactDetails defaults for email and phone match the known business contact values (email eurobanga@gmail.com and phone 79736-73529) when query data is unavailable.",
+        "No default placeholder phone like “+49 123 456 7890” or placeholder email like “info@kkexpress.com” appears on the Contact page."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/site/ContactDetails.tsx",
+          "operation": "modify",
+          "description": "Replace placeholder fallback values so that when backend contact details are not loaded/available, email defaults to eurobanga@gmail.com and phone defaults to 79736-73529. Ensure no placeholder email/phone strings render on the Contact page; keep website fallback non-misleading or align it with the backend-provided value when available."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "modify",
+          "description": "Verify the Contact page’s “Contact Information” panel (ContactDetails usage) renders the updated defaults without introducing any new placeholder contact values in surrounding copy or form placeholders."
+        }
+      ]
+    }
+  ]
+}

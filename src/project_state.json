@@ -1,0 +1,190 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 11,
+  "summary": "Create a website for KK Euro Express courier service.",
+  "architectural_notes": [
+    "Update site content: Services list should include International & Domestic Courier, Vacuum service, and Indo-Canadian Bus service.",
+    "Business contact details confirmed for display (and also in footer): email eurobanga@gmail.com, phone 79736-73529, availability 24/7.",
+    "Service area/coverage should be described as across Europe, explicitly mentioning destinations like UK, USA, Canada, Italy, etc."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-responsive-multi-page-marketing-website-for-kk-euro-express-courier-service-with-the-following-public-pages-home-services-about-contact",
+      "title": "Create a responsive multi-page marketing website for “KK Euro Express” courier service with the following public pages: Home, Services, About, Contact.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-define-and-apply-a-coherent-visual-theme-suitable-for-a-courier-logistics-brand-colors-typography-spacing-and-component-styling-and-use-it-consistently-across-all-pages",
+      "title": "Define and apply a coherent visual theme suitable for a courier/logistics brand (colors, typography, spacing, and component styling) and use it consistently across all pages.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-home-page-that-includes-a-hero-section-headline-subheadline-key-value-propositions-3-6-items-a-services-preview-and-a-prominent-call-to-action-leading-to-the-contact-page",
+      "title": "Implement a Home page that includes: a hero section (headline + subheadline), key value propositions (3–6 items), a “Services” preview, and a prominent call-to-action leading to the Contact page.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-services-page-that-presents-courier-offerings-in-a-clear-scannable-format-service-cards-sections-and-includes-a-simple-how-it-works-section-e-g-request-pickup-ship-deliver",
+      "title": "Implement a Services page that presents courier offerings in a clear, scannable format (service cards/sections) and includes a simple “How it works” section (e.g., Request pickup → Ship → Deliver).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-an-about-page-describing-the-company-and-emphasizing-reliability-coverage-and-customer-service-with-a-section-for-service-areas-coverage-kept-generic-if-exact-geography-is-not-provided",
+      "title": "Implement an About page describing the company and emphasizing reliability, coverage, and customer service, with a section for service areas/coverage (kept generic if exact geography is not provided).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-contact-page-with-a-contact-form-name-email-phone-subject-message-that-submits-to-the-backend-and-shows-success-error-states-also-include-a-section-for-business-contact-details-placeholders-allowed-until-provided",
+      "title": "Add a Contact page with a contact form (name, email/phone, subject, message) that submits to the backend and shows success/error states. Also include a section for business contact details (placeholders allowed until provided).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-site-footer-with-consistent-branding-and-quick-links-to-the-main-pages-plus-a-small-legal-line-e-g-copyright",
+      "title": "Add a site footer with consistent branding and quick links to the main pages, plus a small legal line (e.g., copyright).",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-and-include-static-brand-imagery-as-local-assets-and-render-them-in-the-ui-hero-graphic-and-logo-store-generated-images-under-frontend-public-assets-generated-and-reference-them-directly-from-the-frontend",
+      "title": "Generate and include static brand imagery as local assets and render them in the UI (hero graphic and logo). Store generated images under frontend/public/assets/generated and reference them directly from the frontend.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-home-page-hero-section-background-styling-so-the-homepage-background-looks-more-polished-and-intentional-while-keeping-the-existing-hero-content-and-layout-intact-headline-copy-ctas-and-hero-image-the-updated-background-must-maintain-strong-text-contrast-and-readability-across-common-viewport-sizes",
+      "title": "Update the Home page hero section background styling so the homepage background looks more polished and intentional while keeping the existing hero content and layout intact (headline, copy, CTAs, and hero image). The updated background must maintain strong text contrast and readability across common viewport sizes.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-site-footer-contact-information-to-display-email-eurobanga-gmail-com-phone-79736-73529-and-available-24-7",
+      "title": "Update the site footer contact information to display: Email `eurobanga@gmail.com`, Phone `79736-73529`, and `Available 24/7`.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-footer-services-list-so-it-includes-the-services-specified-by-the-user-international-courier-domestic-courier-vacuum-service-and-indo-canadian-bus-service",
+      "title": "Update the footer 'Services' list so it includes the services specified by the user: International courier, Domestic courier, Vacuum service, and Indo-Canadian bus service.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-services-page-content-to-include-offerings-for-international-courier-domestic-courier-vacuum-service-and-indo-canadian-bus-service-in-the-services-grid-using-clear-english-service-titles-and-short-descriptions",
+      "title": "Update the Services page content to include offerings for International courier, Domestic courier, Vacuum service, and Indo-Canadian bus service in the services grid (using clear English service titles and short descriptions).",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-all-user-facing-marketing-copy-that-describes-service-coverage-as-europe-european-pan-european-so-it-instead-clearly-states-coverage-is-across-punjab-keep-the-brand-name-kk-euro-express-unchanged-this-includes-updating-headings-and-paragraphs-in-the-about-page-coverage-section-the-standalone-coveragesection-component-and-any-home-page-hero-value-proposition-text-that-mentions-europe",
+      "title": "Update all user-facing marketing copy that describes service coverage as Europe/European/Pan-European so it instead clearly states coverage is across Punjab (keep the brand name “KK Euro Express” unchanged). This includes updating headings and paragraphs in the About page coverage section, the standalone CoverageSection component, and any Home page hero/value proposition text that mentions Europe.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-secondary-components-that-contain-europe-based-marketing-copy-to-align-with-punjab-wide-coverage-messaging-e-g-services-preview-cards-and-footer-brand-description-ensuring-wording-remains-natural-and-consistent-across-the-site",
+      "title": "Update secondary components that contain Europe-based marketing copy to align with Punjab-wide coverage messaging (e.g., services preview cards and footer brand description), ensuring wording remains natural and consistent across the site.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-all-user-facing-coverage-region-marketing-copy-to-state-kk-euro-express-ships-across-europe-and-also-to-international-destinations-explicitly-mentioning-example-destinations-uk-usa-canada-and-italy-and-wording-like-and-more-apply-this-consistently-across-pages-components-that-currently-mention-punjab-coverage-e-g-home-hero-headline-paragraph-about-page-hero-and-overview-copy-about-our-coverage-intro-coveragesection-valueprops-howitworks-step-text-servicespreview-descriptions-and-footer-brand-blurb",
+      "title": "Update all user-facing coverage/region marketing copy to state KK Euro Express ships across Europe and also to international destinations, explicitly mentioning example destinations: UK, USA, Canada, and Italy (and wording like “and more”). Apply this consistently across pages/components that currently mention “Punjab” coverage (e.g., Home hero headline/paragraph, About page hero and overview copy, About “Our Coverage” intro, CoverageSection, ValueProps, HowItWorks step text, ServicesPreview descriptions, and footer brand blurb).",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-increase-the-prominence-of-contact-us-across-the-site-by-adding-stronger-more-frequent-contact-ctas-without-changing-the-existing-contact-details-email-phone-24-7-implement-at-least-1-a-prominent-contact-cta-in-the-site-header-on-desktop-and-2-an-additional-contact-quote-cta-section-on-the-services-page-that-links-to-contact",
+      "title": "Increase the prominence of “Contact Us” across the site by adding stronger, more frequent contact CTAs without changing the existing contact details (email/phone/24/7). Implement at least: (1) a prominent Contact CTA in the site header on desktop, and (2) an additional Contact/Quote CTA section on the Services page that links to /contact.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-contact-page-contact-information-panel-does-not-display-unrelated-placeholder-contact-values-when-backend-contact-details-are-not-yet-loaded-it-must-default-to-the-known-business-email-and-phone-already-used-in-the-footer",
+      "title": "Ensure the Contact page “Contact Information” panel does not display unrelated placeholder contact values when backend contact details are not yet loaded; it must default to the known business email and phone already used in the footer.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Build a marketing/informational website for KK Euro Express courier service.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Implement backend support for storing contact inquiries in the single Motoko actor, including: a type for inquiries, a method to create an inquiry, and a method to list inquiries (for internal use).",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Update the backend `getContactDetails()` response to return the business contact information: email `eurobanga@gmail.com`, phone `79736-73529`, and website (leave unchanged if not provided).",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Update site copy/service area messaging to indicate coverage is across Europe, explicitly mentioning UK, USA, Canada, Italy (and similar destinations) as examples.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Increase prominence of 'Contact Us' across the site (e.g., more/stronger CTAs and contact prompts).",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "KK Euro Express Courier Service",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
