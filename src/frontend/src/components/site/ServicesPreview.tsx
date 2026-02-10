@@ -7,7 +7,7 @@ const services = [
   {
     icon: <Truck className="h-10 w-10" />,
     title: 'Express Delivery',
-    description: 'Same-day and next-day delivery for urgent shipments across Europe and to international destinations.',
+    description: 'Fast priority delivery for urgent shipments across Europe and to international destinations.',
   },
   {
     icon: <Plane className="h-10 w-10" />,

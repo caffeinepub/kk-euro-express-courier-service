@@ -1,11 +1,12 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 11,
+  "projectStateVersion": 13,
   "summary": "Create a website for KK Euro Express courier service.",
   "architectural_notes": [
     "Update site content: Services list should include International & Domestic Courier, Vacuum service, and Indo-Canadian Bus service.",
     "Business contact details confirmed for display (and also in footer): email eurobanga@gmail.com, phone 79736-73529, availability 24/7.",
-    "Service area/coverage should be described as across Europe, explicitly mentioning destinations like UK, USA, Canada, Italy, etc."
+    "Service area/coverage should be described as across Europe, explicitly mentioning destinations like UK, USA, Canada, Italy, etc.",
+    "Remove “Same day delivery” from displayed service offerings/copy wherever it appears on the site."
   ],
   "known_issues": [],
   "isFixRequest": false,
@@ -145,6 +146,14 @@
         "REQ-19"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-remove-all-mentions-of-same-day-delivery-including-variants-like-same-day-from-user-facing-site-content-and-service-descriptions-and-replace-with-wording-that-does-not-promise-same-day-delivery",
+      "title": "Remove all mentions of “Same day delivery” (including variants like “same-day”) from user-facing site content and service descriptions, and replace with wording that does not promise same-day delivery.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -179,6 +188,12 @@
     {
       "id": "AR-12",
       "summary": "Increase prominence of 'Contact Us' across the site (e.g., more/stronger CTAs and contact prompts).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Remove “Same day delivery” from site content/service listings (e.g., Services page, home services preview, and any related copy).",
       "reqIds": [],
       "status": "pending"
     }

@@ -1,30 +1,35 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-10T09:14:14.828Z",
-  "summary": "Diff implements Europe-wide + international destination marketing copy (including UK/USA/Canada/Italy/and more) across key components/pages, adds a prominent desktop “Contact Us” header CTA linking to /contact, and updates ContactDetails to default to the known footer email/phone when backend data is unavailable.",
-  "missing_requirements": [],
-  "hallucinated_features": [
+  "generatedAt": "2026-02-10T09:21:51.428Z",
+  "summary": "REQ-20 copy updates were applied to the Home page hero, ServicesPreview Express Delivery card, ValueProps “Lightning Fast” description, and ServicesPage Domestic Courier description to remove “same day/same-day” wording. However, the diff does not provide evidence of a repository-wide cleanup/check, and the ServicesPreview content appears to introduce/rename services beyond the stated non-goal service set.",
+  "missing_requirements": [
     {
-      "description": "Added a “Website” row to the Contact Information panel with a fallback placeholder value (“www.business-website.com”).",
-      "reason": "REQ-19 only requested removing placeholder defaults for email/phone and defaulting them to the known business values; it did not request adding/displaying a website field or introducing a website placeholder.",
+      "id": "REQ-20",
+      "requirement": "A repository-wide check confirms there are no remaining user-facing occurrences of “same day” or “same-day” related to delivery promises in the frontend pages/components updated for this change.",
+      "reason": "The diff shows edits to specific files, but does not include evidence of a repo-wide search/check or confirmation that other user-facing pages/components contain no remaining occurrences.",
       "evidence": [
-        "frontend/src/components/site/ContactDetails.tsx"
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/src/components/site/ServicesPreview.tsx",
+        "frontend/src/components/site/ValueProps.tsx",
+        "frontend/src/pages/ServicesPage.tsx (truncated)"
       ]
     }
   ],
-  "confidence": 0.74,
+  "hallucinated_features": [
+    {
+      "description": "Changed/introduced service offerings in the Home Services preview (e.g., added “International Freight” and “Standard Shipping”, and used “Express Delivery” naming), which may alter the set/presentation of services beyond the requested copy removal.",
+      "reason": "BuildRequest non-goal explicitly says not to change the set of services offered (International courier, Domestic courier, Vacuum service, Indo-Canadian bus service). The ServicesPreview now lists a different set of three services.",
+      "evidence": [
+        "frontend/src/components/site/ServicesPreview.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.72,
   "changed_files": [
     "frontend-file-summaries.txt",
-    "frontend/src/components/site/ContactDetails.tsx",
-    "frontend/src/components/site/CoverageSection.tsx",
-    "frontend/src/components/site/HowItWorks.tsx",
     "frontend/src/components/site/ServicesPreview.tsx",
-    "frontend/src/components/site/SiteFooter.tsx",
-    "frontend/src/components/site/SiteHeader.tsx",
     "frontend/src/components/site/ValueProps.tsx",
-    "frontend/src/pages/AboutPage.tsx",
-    "frontend/src/pages/ContactPage.tsx",
     "frontend/src/pages/HomePage.tsx",
     "frontend/src/pages/ServicesPage.tsx",
     "project_state.json"

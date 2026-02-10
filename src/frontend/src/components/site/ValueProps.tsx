@@ -5,7 +5,7 @@ const valueProps = [
   {
     icon: <Zap className="h-10 w-10" />,
     title: 'Lightning Fast',
-    description: 'Express delivery options with same-day and next-day service across Europe and to international destinations.',
+    description: 'Express delivery options with rapid service across Europe and to international destinations.',
   },
   {
     icon: <Shield className="h-10 w-10" />,

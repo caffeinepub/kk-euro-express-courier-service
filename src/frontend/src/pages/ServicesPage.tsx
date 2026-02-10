@@ -16,7 +16,7 @@ const services = [
     icon: <Truck className="h-10 w-10" />,
     title: 'Domestic Courier',
     description:
-      'Swift domestic delivery services within the country. From same-day to standard shipping, we ensure your packages arrive on time.',
+      'Swift domestic delivery services within the country. Multiple service speeds available to ensure your packages arrive on time.',
   },
   {
     icon: <Wind className="h-10 w-10" />,

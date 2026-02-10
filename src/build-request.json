@@ -1,76 +1,36 @@
 {
   "kind": "build_request",
-  "title": "Update coverage messaging to Europe + key destinations and increase Contact Us prominence",
+  "title": "Remove “Same day delivery” from all site copy",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-17",
-      "text": "Update all user-facing coverage/region marketing copy to state KK Euro Express ships across Europe and also to international destinations, explicitly mentioning example destinations: UK, USA, Canada, and Italy (and wording like “and more”). Apply this consistently across pages/components that currently mention “Punjab” coverage (e.g., Home hero headline/paragraph, About page hero and overview copy, About “Our Coverage” intro, CoverageSection, ValueProps, HowItWorks step text, ServicesPreview descriptions, and footer brand blurb).",
+      "id": "REQ-20",
+      "text": "Remove all mentions of “Same day delivery” (including variants like “same-day”) from user-facing site content and service descriptions, and replace with wording that does not promise same-day delivery.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-6"
         ],
         "quotes": [
-          "across europe ok , but add uk , usa, canada, italy etc"
+          "same day delivery remove it"
         ]
       },
       "acceptanceCriteria": [
-        "Home page hero headline/paragraph no longer says “Punjab-Wide Deliveries” or “across Punjab”; it references Europe-wide service and includes examples (UK/USA/Canada/Italy) in natural English.",
-        "About page hero paragraph, “Who We Are” paragraphs, and “Our Coverage” intro text reference Europe-wide coverage and include example destinations (UK/USA/Canada/Italy).",
-        "CoverageSection titles/descriptions no longer say “Punjab-Wide Network” / “throughout Punjab” and instead describe Europe-wide coverage plus example destinations (UK/USA/Canada/Italy).",
-        "ValueProps contains no “Punjab-Wide Coverage” title/description; the replacement reflects Europe-wide + example destinations.",
-        "HowItWorks step 2 description no longer says “Punjab-wide network”; it reflects Europe-wide shipping (plus global destinations examples where appropriate).",
-        "Footer brand description no longer says “across Punjab”; it aligns with Europe-wide + example destinations messaging.",
-        "No page introduces conflicting coverage statements (e.g., some sections saying Punjab while others say Europe)."
-      ]
-    },
-    {
-      "id": "REQ-18",
-      "text": "Increase the prominence of “Contact Us” across the site by adding stronger, more frequent contact CTAs without changing the existing contact details (email/phone/24/7). Implement at least: (1) a prominent Contact CTA in the site header on desktop, and (2) an additional Contact/Quote CTA section on the Services page that links to /contact.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "contact us more"
-        ]
-      },
-      "acceptanceCriteria": [
-        "On desktop widths, the header includes a clearly visible “Contact” / “Contact Us” call-to-action element that links to /contact (in addition to existing nav links).",
-        "Services page includes a distinct CTA block encouraging users to contact for a quote/help, with a button linking to /contact.",
-        "Existing footer contact information remains unchanged: eurobanga@gmail.com, 79736-73529, Available 24/7."
-      ]
-    },
-    {
-      "id": "REQ-19",
-      "text": "Ensure the Contact page “Contact Information” panel does not display unrelated placeholder contact values when backend contact details are not yet loaded; it must default to the known business email and phone already used in the footer.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "also you know contact info ok"
-        ]
-      },
-      "acceptanceCriteria": [
-        "ContactDetails defaults for email and phone match the known business contact values (email eurobanga@gmail.com and phone 79736-73529) when query data is unavailable.",
-        "No default placeholder phone like “+49 123 456 7890” or placeholder email like “info@kkexpress.com” appears on the Contact page."
+        "The Home page no longer includes the phrase “same-day” / “same day” in the hero paragraph (currently mentions “express same-day delivery”).",
+        "The Services preview section no longer includes “Same-day and next-day delivery” wording in the Express Delivery card description.",
+        "The Value Props section no longer includes “same-day and next-day service” wording in the “Lightning Fast” value proposition.",
+        "The Services page “Domestic Courier” description no longer includes “From same-day to standard shipping”.",
+        "A repository-wide check confirms there are no remaining user-facing occurrences of “same day” or “same-day” related to delivery promises in the frontend pages/components updated for this change."
       ]
     }
   ],
   "constraints": [
-    "Do not edit files under frontend/src/components/ui (read-only UI components).",
-    "Do not modify immutable hook/bootstrap files listed in SYSTEM_CONTEXT (e.g., frontend/src/hooks/useActor.ts, frontend/src/main.tsx).",
-    "Keep backend as a single Motoko actor; no additional canisters/services.",
-    "Do not change the confirmed business contact details shown in the footer (email eurobanga@gmail.com, phone 79736-73529, Available 24/7)."
+    "Do not edit files under frontend/src/components/ui (read-only).",
+    "Do not modify Internet Identity / actor hook files listed as immutable in SYSTEM_CONTEXT."
   ],
   "nonGoals": [
-    "Adding new pages beyond Home/Services/About/Contact.",
-    "Changing inquiry submission behavior or adding new backend inquiry fields.",
-    "Adding third-party integrations (maps, chat widgets, external CRM, etc.)."
+    "Do not change the set of services offered (International courier, Domestic courier, Vacuum service, Indo-Canadian bus service).",
+    "Do not add new pages, routes, or backend APIs as part of this change."
   ],
   "imageRequirements": {
     "required": [],
