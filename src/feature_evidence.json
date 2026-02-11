@@ -2,13 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-remove-all-mentions-of-same-day-delivery-including-variants-like-same-day-from-user-facing-site-content-and-service-descriptions-and-replace-with-wording-that-does-not-promise-same-day-delivery",
-      "featureTitle": "Remove all mentions of “Same day delivery” (including variants like “same-day”) from user-facing site content and service descriptions, and replace with wording that does not promise same-day delivery.",
+      "featureId": "feature-update-the-home-page-media-section-frontend-src-components-site-videosection-tsx-to-promote-the-instagram-account-kkeuroexpress-banga-by-changing-the-section-copy-to-watch-our-videos-on-instagram-english-and-adding-a-clear-outbound-link-button-that-opens-the-instagram-profile-at-https-instagram-com-kkeuroexpress-banga-in-a-new-tab",
+      "featureTitle": "Update the Home page media section (frontend/src/components/site/VideoSection.tsx) to promote the Instagram account `kkeuroexpress_banga` by changing the section copy to “Watch our videos on Instagram” (English) and adding a clear outbound link/button that opens the Instagram profile at `https://instagram.com/kkeuroexpress_banga` in a new tab.",
       "files": [
-        "frontend/src/components/site/ServicesPreview.tsx",
-        "frontend/src/components/site/ValueProps.tsx",
-        "frontend/src/pages/HomePage.tsx",
-        "frontend/src/pages/ServicesPage.tsx"
+        "frontend/src/components/site/VideoSection.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -19,7 +16,26 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-20"
+        "REQ-32"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-an-instagram-link-in-the-site-footer-frontend-src-components-site-sitefooter-tsx-that-points-to-https-instagram-com-kkeuroexpress-banga-and-clearly-labels-the-handle-in-english-e-g-instagram-kkeuroexpress-banga",
+      "featureTitle": "Add an Instagram link in the site footer (frontend/src/components/site/SiteFooter.tsx) that points to `https://instagram.com/kkeuroexpress_banga` and clearly labels the handle in English (e.g., “Instagram: @kkeuroexpress_banga”).",
+      "files": [
+        "frontend/src/components/site/SiteFooter.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-33"
       ],
       "confidence": "high"
     }

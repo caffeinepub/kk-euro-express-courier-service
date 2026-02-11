@@ -1,36 +1,54 @@
 {
   "kind": "build_request",
-  "title": "Remove “Same day delivery” from all site copy",
+  "title": "Add Instagram promo link for KK Euro Express videos",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-20",
-      "text": "Remove all mentions of “Same day delivery” (including variants like “same-day”) from user-facing site content and service descriptions, and replace with wording that does not promise same-day delivery.",
+      "id": "REQ-32",
+      "text": "Update the Home page media section (frontend/src/components/site/VideoSection.tsx) to promote the Instagram account `kkeuroexpress_banga` by changing the section copy to “Watch our videos on Instagram” (English) and adding a clear outbound link/button that opens the Instagram profile at `https://instagram.com/kkeuroexpress_banga` in a new tab.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-6"
+          "msg-3"
         ],
         "quotes": [
-          "same day delivery remove it"
+          "ok now you update watch our videos on instagram kkeuroexpress_banga ok"
         ]
       },
       "acceptanceCriteria": [
-        "The Home page no longer includes the phrase “same-day” / “same day” in the hero paragraph (currently mentions “express same-day delivery”).",
-        "The Services preview section no longer includes “Same-day and next-day delivery” wording in the Express Delivery card description.",
-        "The Value Props section no longer includes “same-day and next-day service” wording in the “Lightning Fast” value proposition.",
-        "The Services page “Domestic Courier” description no longer includes “From same-day to standard shipping”.",
-        "A repository-wide check confirms there are no remaining user-facing occurrences of “same day” or “same-day” related to delivery promises in the frontend pages/components updated for this change."
+        "The VideoSection heading references Instagram videos in English (e.g., “Watch our videos on Instagram”).",
+        "The VideoSection includes a visible link/button that navigates to https://instagram.com/kkeuroexpress_banga.",
+        "The Instagram link opens in a new tab and uses rel=\"noopener noreferrer\".",
+        "The existing video embed and fallback image behavior remain unchanged (video still attempts to load; fallback image still appears on error)."
+      ]
+    },
+    {
+      "id": "REQ-33",
+      "text": "Add an Instagram link in the site footer (frontend/src/components/site/SiteFooter.tsx) that points to `https://instagram.com/kkeuroexpress_banga` and clearly labels the handle in English (e.g., “Instagram: @kkeuroexpress_banga”).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "ok now you update watch our videos on instagram kkeuroexpress_banga ok"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The footer displays an Instagram link labeled in English and referencing @kkeuroexpress_banga.",
+        "Clicking the footer Instagram link opens https://instagram.com/kkeuroexpress_banga in a new tab with rel=\"noopener noreferrer\".",
+        "No existing footer contact details (email/phone/24/7) are removed or changed."
       ]
     }
   ],
   "constraints": [
-    "Do not edit files under frontend/src/components/ui (read-only).",
-    "Do not modify Internet Identity / actor hook files listed as immutable in SYSTEM_CONTEXT."
+    "Frontend files listed as immutable in SYSTEM_CONTEXT must not be edited.",
+    "Do not add new routes or change existing navigation structure for this update."
   ],
   "nonGoals": [
-    "Do not change the set of services offered (International courier, Domestic courier, Vacuum service, Indo-Canadian bus service).",
-    "Do not add new pages, routes, or backend APIs as part of this change."
+    "Embedding an Instagram feed or calling Instagram APIs.",
+    "Changing backend Motoko code or data models.",
+    "Changing the existing video asset paths or fallback image paths."
   ],
   "imageRequirements": {
     "required": [],

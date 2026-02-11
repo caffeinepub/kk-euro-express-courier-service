@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router';
 import { Heart } from 'lucide-react';
+import { SiInstagram } from 'react-icons/si';
 
 export default function SiteFooter() {
   const currentYear = new Date().getFullYear();
@@ -73,6 +74,17 @@ export default function SiteFooter() {
               <li>Email: eurobanga@gmail.com</li>
               <li>Phone: 79736-73529</li>
               <li>Available 24/7</li>
+              <li className="pt-2">
+                <a
+                  href="https://instagram.com/kkeuroexpress_banga"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors"
+                >
+                  <SiInstagram className="h-4 w-4" />
+                  <span>Instagram: @kkeuroexpress_banga</span>
+                </a>
+              </li>
             </ul>
           </div>
         </div>

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import Section from '@/components/site/Section';
 import ValueProps from '@/components/site/ValueProps';
 import ServicesPreview from '@/components/site/ServicesPreview';
+import VideoSection from '@/components/site/VideoSection';
 
 export default function HomePage() {
   return (
@@ -55,6 +56,9 @@ export default function HomePage() {
         </div>
         <ValueProps />
       </Section>
+
+      {/* Video Section */}
+      <VideoSection />
 
       {/* Services Preview */}
       <Section className="bg-muted/30">

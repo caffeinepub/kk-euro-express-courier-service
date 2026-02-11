@@ -5,10 +5,13 @@ import ServicesPage from './pages/ServicesPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 
+// Root route with shared layout
 const rootRoute = createRootRoute({
   component: SiteLayout,
 });
 
+// Route definitions - these paths remain unchanged and stable
+// No new routes are introduced for video embedding; video is part of Home page UI only
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/',

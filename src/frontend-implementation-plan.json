@@ -1,38 +1,38 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Remove “Same day delivery” promise from marketing copy",
+  "title": "Add Instagram promo link for KK Euro Express videos",
   "requirements": [
     {
-      "id": "REQ-20",
-      "summary": "Remove all “same day” / “same-day” delivery promise language from user-facing copy and replace with non-committal wording.",
+      "id": "REQ-32",
+      "summary": "Update the Home page VideoSection copy to promote Instagram and add an outbound Instagram profile link/button that opens in a new tab.",
       "acceptanceCriteria": [
-        "The Home page no longer includes the phrase “same-day” / “same day” in the hero paragraph (currently mentions “express same-day delivery”).",
-        "The Services preview section no longer includes “Same-day and next-day delivery” wording in the Express Delivery card description.",
-        "The Value Props section no longer includes “same-day and next-day service” wording in the “Lightning Fast” value proposition.",
-        "The Services page “Domestic Courier” description no longer includes “From same-day to standard shipping”.",
-        "A repository-wide check confirms there are no remaining user-facing occurrences of “same day” or “same-day” related to delivery promises in the frontend pages/components updated for this change."
+        "The VideoSection heading references Instagram videos in English (e.g., “Watch our videos on Instagram”).",
+        "The VideoSection includes a visible link/button that navigates to https://instagram.com/kkeuroexpress_banga.",
+        "The Instagram link opens in a new tab and uses rel=\"noopener noreferrer\".",
+        "The existing video embed and fallback image behavior remain unchanged (video still attempts to load; fallback image still appears on error)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/HomePage.tsx",
+          "path": "frontend/src/components/site/VideoSection.tsx",
           "operation": "modify",
-          "description": "Update the hero paragraph copy to remove the “express same-day delivery” promise and replace with wording that communicates speed without promising same-day delivery."
-        },
+          "description": "Change the section heading/copy to “Watch our videos on Instagram” (English) and add a clear outbound link/button to https://instagram.com/kkeuroexpress_banga with target=\"_blank\" and rel=\"noopener noreferrer\". Keep the existing <video> embed, onError handling, and fallback image behavior unchanged (including existing asset paths)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-33",
+      "summary": "Add a clearly labeled Instagram handle link to the site footer that opens in a new tab without altering existing contact details.",
+      "acceptanceCriteria": [
+        "The footer displays an Instagram link labeled in English and referencing @kkeuroexpress_banga.",
+        "Clicking the footer Instagram link opens https://instagram.com/kkeuroexpress_banga in a new tab with rel=\"noopener noreferrer\".",
+        "No existing footer contact details (email/phone/24/7) are removed or changed."
+      ],
+      "file_operations": [
         {
-          "path": "frontend/src/components/site/ServicesPreview.tsx",
+          "path": "frontend/src/components/site/SiteFooter.tsx",
           "operation": "modify",
-          "description": "Update the Express Delivery card description to remove “Same-day and next-day delivery” language and replace with non-committal express/priority wording that does not promise same-day delivery."
-        },
-        {
-          "path": "frontend/src/components/site/ValueProps.tsx",
-          "operation": "modify",
-          "description": "Update the “Lightning Fast” value proposition description to remove “same-day and next-day service” and replace with wording that highlights speed without promising same-day delivery."
-        },
-        {
-          "path": "frontend/src/pages/ServicesPage.tsx",
-          "operation": "modify",
-          "description": "Update the “Domestic Courier” service description to remove “From same-day to standard shipping” and replace with phrasing that describes multiple service speeds without promising same-day delivery. After edits, perform a repository-wide search within frontend for remaining user-facing “same day” / “same-day” mentions tied to delivery promises and correct any found in the touched pages/components."
+          "description": "Add an Instagram link in the footer labeled in English (e.g., “Instagram: @kkeuroexpress_banga”) pointing to https://instagram.com/kkeuroexpress_banga with target=\"_blank\" and rel=\"noopener noreferrer\". Ensure existing footer contact details (email/phone/24/7) remain unchanged."
         }
       ]
     }

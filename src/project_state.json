@@ -1,14 +1,20 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 13,
+  "projectStateVersion": 23,
   "summary": "Create a website for KK Euro Express courier service.",
   "architectural_notes": [
     "Update site content: Services list should include International & Domestic Courier, Vacuum service, and Indo-Canadian Bus service.",
     "Business contact details confirmed for display (and also in footer): email eurobanga@gmail.com, phone 79736-73529, availability 24/7.",
     "Service area/coverage should be described as across Europe, explicitly mentioning destinations like UK, USA, Canada, Italy, etc.",
-    "Remove “Same day delivery” from displayed service offerings/copy wherever it appears on the site."
+    "Remove “Same day delivery” from displayed service offerings/copy wherever it appears on the site.",
+    "User requests a public-facing website name/custom domain so others can search and access the site via an easy URL (domain + DNS/IC routing as needed).",
+    "Support a non-video media option: allow uploading/using a static image in place of (or as fallback for) the embedded video section when the video is unavailable.",
+    "Add an Instagram/social link referencing the account `kkeuroexpress_banga` and a “Watch our videos on Instagram” callout in an appropriate section (e.g., media/hero/footer/contact)."
   ],
-  "known_issues": [],
+  "known_issues": [
+    "Attempting to upload/embed a video triggered an internal configuration error ('Please inform the Caffeine team'), blocking the update flow.",
+    "Video content is currently unavailable; user requested switching to an uploaded image instead."
+  ],
   "isFixRequest": false,
   "existing_features": [
     {
@@ -154,6 +160,102 @@
         "REQ-20"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-improve-basic-seo-discoverability-by-adding-standard-meta-tags-to-the-html-entry-title-meta-description-canonical-url-open-graph-tags-using-the-brand-name-kk-euro-express-and-accurate-courier-logistics-wording",
+      "title": "Improve basic SEO/discoverability by adding standard meta tags to the HTML entry (title, meta description, canonical URL, Open Graph tags) using the brand name “KK Euro Express” and accurate courier/logistics wording.",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-robots-txt-and-sitemap-xml-as-static-public-assets-so-search-engines-can-crawl-the-main-pages-services-about-contact",
+      "title": "Add `robots.txt` and `sitemap.xml` as static public assets so search engines can crawl the main pages (/, /services, /about, /contact).",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-placeholder-website-value-shown-to-users-and-instead-display-a-correct-official-website-url-use-the-backend-provided-contactdetails-website-when-present-otherwise-fall-back-to-the-current-site-origin-e-g-https-current-host",
+      "title": "Remove the placeholder website value shown to users and instead display a correct official website URL: use the backend-provided `contactDetails.website` when present; otherwise fall back to the current site origin (e.g., `https://<current-host>`).",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-simple-user-facing-share-our-website-snippet-in-english-on-the-contact-page-that-explains-users-can-share-the-official-website-url-to-let-others-find-and-open-the-site",
+      "title": "Add a simple, user-facing “Share our website” snippet (in English) on the Contact page that explains users can share the official website URL to let others find and open the site.",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-support-for-hosting-a-user-provided-video-file-as-a-static-frontend-asset-and-embed-it-on-the-website-in-a-polished-responsive-section",
+      "title": "Add support for hosting a user-provided video file as a static frontend asset and embed it on the website in a polished, responsive section.",
+      "reqIds": [
+        "REQ-26"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-embedding-the-video-does-not-change-the-existing-public-website-link-domain-and-does-not-introduce-any-new-routes-that-would-break-existing-navigation",
+      "title": "Ensure embedding the video does not change the existing public website link/domain and does not introduce any new routes that would break existing navigation.",
+      "reqIds": [
+        "REQ-27"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-clear-developer-facing-note-in-the-repository-e-g-in-a-readme-or-a-short-comment-near-the-embed-code-describing-exactly-where-to-place-replace-the-video-file-and-what-filename-the-embed-expects",
+      "title": "Add a clear developer-facing note in the repository (e.g., in a README or a short comment near the embed code) describing exactly where to place/replace the video file and what filename the embed expects.",
+      "reqIds": [
+        "REQ-28"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-user-uploaded-jpeg-whatsapp-image-2025-12-16-at-1-19-45-pm-1-jpeg-to-the-frontend-as-a-static-public-asset-and-reference-it-via-a-stable-url-path-that-the-home-page-can-load-without-backend-involvement",
+      "title": "Add the user-uploaded JPEG (\"WhatsApp Image 2025-12-16 at 1.19.45 PM-1.jpeg\") to the frontend as a static public asset and reference it via a stable URL path that the Home page can load without backend involvement.",
+      "reqIds": [
+        "REQ-29"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-home-page-media-section-videosection-so-that-when-the-video-cannot-be-loaded-it-displays-the-uploaded-image-instead-of-only-showing-the-video-content-is-currently-unavailable-message",
+      "title": "Update the Home page media section (VideoSection) so that when the video cannot be loaded, it displays the uploaded image instead of only showing the \"Video content is currently unavailable.\" message.",
+      "reqIds": [
+        "REQ-30"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-frontend-video-asset-md-to-document-both-1-where-to-place-replace-the-video-asset-and-2-where-to-place-replace-the-image-fallback-asset-and-the-exact-url-path-the-videosection-expects-for-the-fallback-image",
+      "title": "Update frontend/VIDEO_ASSET.md to document both: (1) where to place/replace the video asset, and (2) where to place/replace the image fallback asset and the exact URL/path the VideoSection expects for the fallback image.",
+      "reqIds": [
+        "REQ-31"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-home-page-media-section-frontend-src-components-site-videosection-tsx-to-promote-the-instagram-account-kkeuroexpress-banga-by-changing-the-section-copy-to-watch-our-videos-on-instagram-english-and-adding-a-clear-outbound-link-button-that-opens-the-instagram-profile-at-https-instagram-com-kkeuroexpress-banga-in-a-new-tab",
+      "title": "Update the Home page media section (frontend/src/components/site/VideoSection.tsx) to promote the Instagram account `kkeuroexpress_banga` by changing the section copy to “Watch our videos on Instagram” (English) and adding a clear outbound link/button that opens the Instagram profile at `https://instagram.com/kkeuroexpress_banga` in a new tab.",
+      "reqIds": [
+        "REQ-32"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-instagram-link-in-the-site-footer-frontend-src-components-site-sitefooter-tsx-that-points-to-https-instagram-com-kkeuroexpress-banga-and-clearly-labels-the-handle-in-english-e-g-instagram-kkeuroexpress-banga",
+      "title": "Add an Instagram link in the site footer (frontend/src/components/site/SiteFooter.tsx) that points to `https://instagram.com/kkeuroexpress_banga` and clearly labels the handle in English (e.g., “Instagram: @kkeuroexpress_banga”).",
+      "reqIds": [
+        "REQ-33"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -194,6 +296,38 @@
     {
       "id": "AR-13",
       "summary": "Remove “Same day delivery” from site content/service listings (e.g., Services page, home services preview, and any related copy).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Publish (build and deploy) the current application version to the Internet Computer network with no additional feature or content changes.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Set up a public, searchable website name (custom domain) for the KK Euro Express site so people can find it easily and access it via a simple URL.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Upload and embed a user-provided video on the website without changing the existing public website link/domain.",
+      "reqIds": [],
+      "status": "in_progress"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Replace/augment the planned embedded video with an uploaded image (image fallback) when video content is unavailable.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-18",
+      "summary": "Add/update site content to promote Instagram videos by linking to the Instagram account kkeuroexpress_banga (e.g., “Watch our videos on Instagram”).",
       "reqIds": [],
       "status": "pending"
     }
