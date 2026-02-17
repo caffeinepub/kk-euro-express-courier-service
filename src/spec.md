@@ -1,11 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Promote KK Euro Express’s Instagram profile from the Home page video section and the site footer.
+**Goal:** Replace the Home page VideoSection fallback image so the newly uploaded image is shown when the homepage video cannot be loaded.
 
 **Planned changes:**
-- Update `VideoSection.tsx` copy to “Watch our videos on Instagram” and add a clear outbound link/button to `https://instagram.com/kkeuroexpress_banga` that opens in a new tab with `rel="noopener noreferrer"`.
-- Add a footer link in `SiteFooter.tsx` labeled in English (e.g., “Instagram: @kkeuroexpress_banga”) pointing to `https://instagram.com/kkeuroexpress_banga`, opening in a new tab with `rel="noopener noreferrer"`.
-- Keep existing video embed and fallback image behavior unchanged, and do not alter existing footer contact details.
+- Replace the static asset at `frontend/public/assets/video-fallback.jpeg` with the newly uploaded `image-1.png` content (converted/renamed as needed), keeping the public URL unchanged.
+- Keep `frontend/src/components/site/VideoSection.tsx` referencing `/assets/video-fallback.jpeg` with no route or navigation changes.
 
-**User-visible outcome:** Visitors see a “Watch our videos on Instagram” prompt on the Home page and an Instagram handle link in the footer; both open the `@kkeuroexpress_banga` Instagram profile in a new tab.
+**User-visible outcome:** If the homepage video fails to load, the site displays the newly uploaded fallback image at the same `/assets/video-fallback.jpeg` URL.

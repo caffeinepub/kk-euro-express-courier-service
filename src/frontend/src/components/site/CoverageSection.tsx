@@ -9,9 +9,9 @@ export default function CoverageSection() {
             <Globe2 className="h-6 w-6 text-accent" />
           </div>
           <div>
-            <h3 className="mb-2 text-xl font-bold">Europe-Wide & International Network</h3>
+            <h3 className="mb-2 text-xl font-bold">Worldwide Shipping Network</h3>
             <p className="text-muted-foreground">
-              Our extensive network covers Europe and reaches international destinations including the UK, USA, Canada, Italy, and more, ensuring your packages reach their
+              Our extensive network provides worldwide shipping, reaching international destinations including the UK, USA, Canada, Italy, and more, ensuring your packages reach their
               destination quickly and safely. We maintain strategic hubs in key locations to optimize delivery times.
             </p>
           </div>
@@ -26,7 +26,7 @@ export default function CoverageSection() {
             <h3 className="mb-2 text-xl font-bold">Local Expertise</h3>
             <p className="text-muted-foreground">
               With local teams in each region, we understand the unique requirements and characteristics of every
-              area we serve. This ensures smooth operations and efficient last-mile delivery across Europe and to international destinations.
+              area we serve. This ensures smooth operations and efficient last-mile delivery to international destinations worldwide.
             </p>
           </div>
         </div>

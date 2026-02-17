@@ -34,7 +34,7 @@ export default function AboutPage() {
         <div className="text-center max-w-3xl mx-auto">
           <h1 className="mb-6 font-display">About KK Euro Express</h1>
           <p className="text-xl text-muted-foreground">
-            Your trusted partner for fast, reliable, and secure courier services across Europe and to international destinations including the UK, USA, Canada, Italy, and more.
+            Your trusted partner for fast, reliable, and secure courier services with worldwide shipping to the UK, USA, Canada, Italy, and destinations around the globe.
           </p>
         </div>
       </Section>
@@ -47,11 +47,11 @@ export default function AboutPage() {
             <div className="space-y-4 text-muted-foreground">
               <p>
                 KK Euro Express is a leading courier and logistics company specializing in fast, reliable deliveries
-                across Europe and to international destinations. With years of experience in the industry, we've built a reputation for excellence,
+                worldwide. With years of experience in the industry, we've built a reputation for excellence,
                 security, and customer satisfaction.
               </p>
               <p>
-                Our extensive network spans Europe and reaches key international destinations including the UK, USA, Canada, Italy, and more, enabling us to provide seamless shipping
+                Our extensive network provides worldwide shipping solutions, reaching key international destinations including the UK, USA, Canada, Italy, and more, enabling us to provide seamless shipping
                 solutions for businesses and individuals alike. From small parcels to large freight, we handle every
                 shipment with the utmost care and professionalism.
               </p>
@@ -98,7 +98,7 @@ export default function AboutPage() {
         <div className="mb-12 text-center">
           <h2 className="mb-4 font-display">Our Coverage</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Extensive network across Europe and to international destinations including the UK, USA, Canada, Italy, and more.
+            Worldwide shipping network reaching international destinations including the UK, USA, Canada, Italy, and more.
           </p>
         </div>
         <CoverageSection />

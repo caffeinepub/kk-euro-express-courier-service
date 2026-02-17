@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router';
-import { Heart } from 'lucide-react';
+import { Heart, MapPin } from 'lucide-react';
 import { SiInstagram } from 'react-icons/si';
 
 export default function SiteFooter() {
@@ -25,7 +25,7 @@ export default function SiteFooter() {
               </span>
             </div>
             <p className="text-sm text-muted-foreground">
-              Fast, reliable courier services across Europe and to international destinations including the UK, USA, Canada, Italy, and more.
+              Fast, reliable courier services with worldwide shipping to the UK, USA, Canada, Italy, and destinations around the globe.
             </p>
           </div>
 
@@ -60,46 +60,49 @@ export default function SiteFooter() {
           <div>
             <h3 className="mb-4 text-sm font-semibold">Services</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>International Courier</li>
+              <li>Express Delivery</li>
+              <li>International Freight</li>
+              <li>Standard Shipping</li>
               <li>Domestic Courier</li>
-              <li>Vacuum Service</li>
-              <li>Indo-Canadian Bus Service</li>
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold">Get in Touch</h3>
+            <h3 className="mb-4 text-sm font-semibold">Contact</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>Email: eurobanga@gmail.com</li>
               <li>Phone: 79736-73529</li>
-              <li>Available 24/7</li>
-              <li className="pt-2">
+              <li className="flex items-start gap-2">
+                <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
+                <span>Near Canara Bank, Main Rd, SBS Nagar, 144505</span>
+              </li>
+              <li className="flex items-center gap-2">
                 <a
-                  href="https://instagram.com/kkeuroexpress_banga"
+                  href="https://www.instagram.com/kkeuroexpress_banga/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-foreground hover:text-primary transition-colors"
+                  className="flex items-center gap-2 hover:text-foreground transition-colors"
                 >
                   <SiInstagram className="h-4 w-4" />
-                  <span>Instagram: @kkeuroexpress_banga</span>
+                  @kkeuroexpress_banga
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 border-t pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground">
+        <div className="mt-12 border-t pt-8 text-center text-sm text-muted-foreground">
+          <p>
             © {currentYear} KK Euro Express. All rights reserved.
           </p>
-          <p className="text-sm text-muted-foreground flex items-center gap-1">
-            Built with <Heart className="h-4 w-4 text-red-500 fill-red-500" /> using{' '}
+          <p className="mt-2 flex items-center justify-center gap-1">
+            Built with <Heart className="h-4 w-4 fill-red-500 text-red-500" /> using{' '}
             <a
               href={`https://caffeine.ai/?utm_source=Caffeine-footer&utm_medium=referral&utm_content=${appIdentifier}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground hover:underline font-medium"
+              className="font-medium hover:text-foreground transition-colors"
             >
               caffeine.ai
             </a>

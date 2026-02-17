@@ -1,38 +1,22 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Add Instagram promo link for KK Euro Express videos",
+  "title": "Replace homepage video fallback asset with newly uploaded office image",
   "requirements": [
     {
-      "id": "REQ-32",
-      "summary": "Update the Home page VideoSection copy to promote Instagram and add an outbound Instagram profile link/button that opens in a new tab.",
+      "id": "REQ-38",
+      "summary": "Swap the Home page VideoSection fallback image while keeping the public URL `/assets/video-fallback.jpeg` unchanged.",
       "acceptanceCriteria": [
-        "The VideoSection heading references Instagram videos in English (e.g., “Watch our videos on Instagram”).",
-        "The VideoSection includes a visible link/button that navigates to https://instagram.com/kkeuroexpress_banga.",
-        "The Instagram link opens in a new tab and uses rel=\"noopener noreferrer\".",
-        "The existing video embed and fallback image behavior remain unchanged (video still attempts to load; fallback image still appears on error)."
+        "The frontend contains a static asset at `frontend/public/assets/video-fallback.jpeg` whose content matches the newly uploaded `image-1.png` (converted/renamed as needed).",
+        "When `/assets/watch-our-video.mp4` fails to load, `frontend/src/components/site/VideoSection.tsx` continues to render `<img src=\"/assets/video-fallback.jpeg\" ...>` and the displayed image is the newly uploaded one.",
+        "The public URL used by the site for the fallback image remains exactly `/assets/video-fallback.jpeg` (no route changes and no backend involvement).",
+        "No changes are made to the Internet Identity/auth hooks or other immutable frontend paths."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/site/VideoSection.tsx",
+          "path": "frontend/public/assets/video-fallback.jpeg",
           "operation": "modify",
-          "description": "Change the section heading/copy to “Watch our videos on Instagram” (English) and add a clear outbound link/button to https://instagram.com/kkeuroexpress_banga with target=\"_blank\" and rel=\"noopener noreferrer\". Keep the existing <video> embed, onError handling, and fallback image behavior unchanged (including existing asset paths)."
-        }
-      ]
-    },
-    {
-      "id": "REQ-33",
-      "summary": "Add a clearly labeled Instagram handle link to the site footer that opens in a new tab without altering existing contact details.",
-      "acceptanceCriteria": [
-        "The footer displays an Instagram link labeled in English and referencing @kkeuroexpress_banga.",
-        "Clicking the footer Instagram link opens https://instagram.com/kkeuroexpress_banga in a new tab with rel=\"noopener noreferrer\".",
-        "No existing footer contact details (email/phone/24/7) are removed or changed."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/site/SiteFooter.tsx",
-          "operation": "modify",
-          "description": "Add an Instagram link in the footer labeled in English (e.g., “Instagram: @kkeuroexpress_banga”) pointing to https://instagram.com/kkeuroexpress_banga with target=\"_blank\" and rel=\"noopener noreferrer\". Ensure existing footer contact details (email/phone/24/7) remain unchanged."
+          "description": "Replace the existing fallback image file contents with the newly uploaded `image-1.png` (convert to JPEG as needed) while keeping the filename and path exactly `video-fallback.jpeg` so the public URL remains `/assets/video-fallback.jpeg`."
         }
       ]
     }

@@ -1,54 +1,37 @@
 {
   "kind": "build_request",
-  "title": "Add Instagram promo link for KK Euro Express videos",
+  "title": "Replace homepage video fallback with newly uploaded office image",
+  "projectName": "KK Euro Express",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-32",
-      "text": "Update the Home page media section (frontend/src/components/site/VideoSection.tsx) to promote the Instagram account `kkeuroexpress_banga` by changing the section copy to “Watch our videos on Instagram” (English) and adding a clear outbound link/button that opens the Instagram profile at `https://instagram.com/kkeuroexpress_banga` in a new tab.",
+      "id": "REQ-38",
+      "text": "Replace the Home page VideoSection fallback image (served at public URL `/assets/video-fallback.jpeg`) with the newly uploaded image (`image-1.png`) so that when the video cannot be loaded, the site displays this new image instead of the previously used office image.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-3"
+          "msg-1"
         ],
         "quotes": [
-          "ok now you update watch our videos on instagram kkeuroexpress_banga ok"
+          "replace into office image i sent you eariler"
         ]
       },
       "acceptanceCriteria": [
-        "The VideoSection heading references Instagram videos in English (e.g., “Watch our videos on Instagram”).",
-        "The VideoSection includes a visible link/button that navigates to https://instagram.com/kkeuroexpress_banga.",
-        "The Instagram link opens in a new tab and uses rel=\"noopener noreferrer\".",
-        "The existing video embed and fallback image behavior remain unchanged (video still attempts to load; fallback image still appears on error)."
-      ]
-    },
-    {
-      "id": "REQ-33",
-      "text": "Add an Instagram link in the site footer (frontend/src/components/site/SiteFooter.tsx) that points to `https://instagram.com/kkeuroexpress_banga` and clearly labels the handle in English (e.g., “Instagram: @kkeuroexpress_banga”).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "ok now you update watch our videos on instagram kkeuroexpress_banga ok"
-        ]
-      },
-      "acceptanceCriteria": [
-        "The footer displays an Instagram link labeled in English and referencing @kkeuroexpress_banga.",
-        "Clicking the footer Instagram link opens https://instagram.com/kkeuroexpress_banga in a new tab with rel=\"noopener noreferrer\".",
-        "No existing footer contact details (email/phone/24/7) are removed or changed."
+        "The frontend contains a static asset at `frontend/public/assets/video-fallback.jpeg` whose content matches the newly uploaded `image-1.png` (converted/renamed as needed).",
+        "When `/assets/watch-our-video.mp4` fails to load, `frontend/src/components/site/VideoSection.tsx` continues to render `<img src=\"/assets/video-fallback.jpeg\" ...>` and the displayed image is the newly uploaded one.",
+        "The public URL used by the site for the fallback image remains exactly `/assets/video-fallback.jpeg` (no route changes and no backend involvement).",
+        "No changes are made to the Internet Identity/auth hooks or other immutable frontend paths."
       ]
     }
   ],
   "constraints": [
-    "Frontend files listed as immutable in SYSTEM_CONTEXT must not be edited.",
-    "Do not add new routes or change existing navigation structure for this update."
+    "Keep the fallback image URL/path used by `VideoSection` exactly `/assets/video-fallback.jpeg` to avoid breaking existing behavior and documentation.",
+    "Do not introduce new routes or change existing navigation."
   ],
   "nonGoals": [
-    "Embedding an Instagram feed or calling Instagram APIs.",
-    "Changing backend Motoko code or data models.",
-    "Changing the existing video asset paths or fallback image paths."
+    "Changing the video embed behavior, video file location, or adding new media/gallery sections.",
+    "Updating marketing copy or other page content unrelated to the fallback image swap.",
+    "Backend changes (not required for this asset replacement)."
   ],
   "imageRequirements": {
     "required": [],

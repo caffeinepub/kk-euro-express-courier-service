@@ -1,15 +1,29 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-11T06:14:53.650Z",
-  "summary": "REQ-32 and REQ-33 appear to be implemented: VideoSection copy now references Instagram and includes an outbound Instagram button/link opening in a new tab with proper rel, while preserving the existing video/fallback behavior; SiteFooter now includes an Instagram link labeled with the handle, also opening in a new tab with proper rel, without changing the listed contact details.",
-  "missing_requirements": [],
-  "hallucinated_features": [],
+  "generatedAt": "2026-02-17T08:13:28.315Z",
+  "summary": "The diff does not implement the requested fallback image replacement. Only `project_state.json` was modified; no static asset or `VideoSection` change is shown.",
+  "missing_requirements": [
+    {
+      "id": "REQ-38",
+      "requirement": "Replace the Home page VideoSection fallback image (served at public URL `/assets/video-fallback.jpeg`) with the newly uploaded image (`image-1.png`) so the fallback displays the new image while keeping the URL exactly `/assets/video-fallback.jpeg`.",
+      "reason": "No evidence in the diff summary of adding/updating `frontend/public/assets/video-fallback.jpeg` or verifying that it matches `image-1.png`, and no evidence of any change (or confirmation of no change) in `frontend/src/components/site/VideoSection.tsx`. The only modified file is `project_state.json`.",
+      "evidence": [
+        "project_state.json"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Updated project metadata/state (`project_state.json`).",
+      "reason": "The BuildRequest is strictly about swapping a static fallback image asset for `VideoSection` and explicitly avoids other changes; modifying `project_state.json` is not requested or mentioned.",
+      "evidence": [
+        "project_state.json"
+      ]
+    }
+  ],
   "confidence": 0.78,
   "changed_files": [
-    "frontend-file-summaries.txt",
-    "frontend/src/components/site/SiteFooter.tsx",
-    "frontend/src/components/site/VideoSection.tsx",
     "project_state.json"
   ]
 }

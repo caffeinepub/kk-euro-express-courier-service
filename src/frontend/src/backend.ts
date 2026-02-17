@@ -89,6 +89,12 @@ export class ExternalBlob {
         return this;
     }
 }
+export interface ContactDetails {
+    email: string;
+    website: string;
+    address: string;
+    phone: string;
+}
 export interface ContactInquiry {
     emailOrPhone: string;
     subject: string;
@@ -110,11 +116,7 @@ export interface backendInterface {
     getAllInquiries(): Promise<Array<ContactInquiry>>;
     getCallerUserProfile(): Promise<UserProfile | null>;
     getCallerUserRole(): Promise<UserRole>;
-    getContactDetails(): Promise<{
-        email: string;
-        website: string;
-        phone: string;
-    }>;
+    getContactDetails(): Promise<ContactDetails>;
     getUserProfile(user: Principal): Promise<UserProfile | null>;
     isCallerAdmin(): Promise<boolean>;
     saveCallerUserProfile(profile: UserProfile): Promise<void>;
@@ -193,11 +195,7 @@ export class Backend implements backendInterface {
             return from_candid_UserRole_n4(this._uploadFile, this._downloadFile, result);
         }
     }
-    async getContactDetails(): Promise<{
-        email: string;
-        website: string;
-        phone: string;
-    }> {
+    async getContactDetails(): Promise<ContactDetails> {
         if (this.processError) {
             try {
                 const result = await this.actor.getContactDetails();

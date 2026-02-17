@@ -1,15 +1,17 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 23,
+  "projectStateVersion": 29,
   "summary": "Create a website for KK Euro Express courier service.",
   "architectural_notes": [
     "Update site content: Services list should include International & Domestic Courier, Vacuum service, and Indo-Canadian Bus service.",
     "Business contact details confirmed for display (and also in footer): email eurobanga@gmail.com, phone 79736-73529, availability 24/7.",
-    "Service area/coverage should be described as across Europe, explicitly mentioning destinations like UK, USA, Canada, Italy, etc.",
     "Remove “Same day delivery” from displayed service offerings/copy wherever it appears on the site.",
     "User requests a public-facing website name/custom domain so others can search and access the site via an easy URL (domain + DNS/IC routing as needed).",
     "Support a non-video media option: allow uploading/using a static image in place of (or as fallback for) the embedded video section when the video is unavailable.",
-    "Add an Instagram/social link referencing the account `kkeuroexpress_banga` and a “Watch our videos on Instagram” callout in an appropriate section (e.g., media/hero/footer/contact)."
+    "Add an Instagram/social link referencing the account `kkeuroexpress_banga` and a “Watch our videos on Instagram” callout in an appropriate section (e.g., media/hero/footer/contact).",
+    "Replace any “Across Europe” coverage wording sitewide with “Worldwide Shipping” (coverage describes service reach, not company origin).",
+    "Add business address for display on the site: near Canara Bank, Main Rd, SBS Nagar, 144505.",
+    "User wants the currently used image replaced with an office photo (user-provided)."
   ],
   "known_issues": [
     "Attempting to upload/embed a video triggered an internal configuration error ('Please inform the Caffeine team'), blocking the update flow.",
@@ -256,6 +258,46 @@
         "REQ-33"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-update-all-user-facing-website-coverage-region-marketing-copy-to-remove-any-mentions-of-across-europe-europe-europe-wide-or-europe-wide-deliveries-and-replace-the-coverage-message-with-worldwide-shipping-english-apply-this-consistently-anywhere-coverage-is-described-including-at-minimum-the-home-page-hero-headline-paragraph-about-page-hero-overview-and-our-coverage-intro-coveragesection-headings-paragraphs-valueprops-items-howitworks-step-text-servicespreview-card-descriptions-and-the-sitefooter-brand-description-ensure-kk-euro-express-brand-name-remains-unchanged",
+      "title": "Update all user-facing website coverage/region marketing copy to remove any mentions of “Across Europe”, “Europe”, “Europe-wide”, or “Europe-Wide Deliveries”, and replace the coverage message with “Worldwide Shipping” (English). Apply this consistently anywhere coverage is described, including (at minimum) the Home page hero headline/paragraph, About page hero/overview and “Our Coverage” intro, CoverageSection headings/paragraphs, ValueProps items, HowItWorks step text, ServicesPreview card descriptions, and the SiteFooter brand description. Ensure “KK Euro Express” (brand name) remains unchanged.",
+      "reqIds": [
+        "REQ-34"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-user-uploaded-office-image-use-file-whatsapp-image-2025-12-17-at-9-56-35-am-jpeg-to-the-frontend-as-a-static-public-asset-and-ensure-the-website-displays-it-in-place-of-the-currently-shown-fallback-image-the-image-shown-when-the-homepage-videosection-video-cannot-be-loaded",
+      "title": "Add the user-uploaded office image (use file: \"WhatsApp Image 2025-12-17 at 9.56.35 AM.jpeg\") to the frontend as a static public asset and ensure the website displays it in place of the currently shown fallback image (the image shown when the homepage VideoSection video cannot be loaded).",
+      "reqIds": [
+        "REQ-35"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-business-address-to-the-website-in-english-as-near-canara-bank-main-rd-sbs-nagar-144505-and-display-it-in-the-site-footer-contact-section-and-in-the-contact-page-contact-information-panel",
+      "title": "Add the business address to the website in English as: \"Near Canara Bank, Main Rd, SBS Nagar, 144505\" and display it in the site footer Contact section and in the Contact page “Contact Information” panel.",
+      "reqIds": [
+        "REQ-36"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-extend-backend-contact-details-to-include-the-business-address-near-canara-bank-main-rd-sbs-nagar-144505-and-update-the-frontend-to-use-the-backend-provided-address-when-available-with-a-fallback-to-the-same-known-address-if-backend-data-is-not-yet-loaded",
+      "title": "Extend backend contact details to include the business address \"Near Canara Bank, Main Rd, SBS Nagar, 144505\" and update the frontend to use the backend-provided address when available, with a fallback to the same known address if backend data is not yet loaded.",
+      "reqIds": [
+        "REQ-37"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-home-page-videosection-fallback-image-served-at-public-url-assets-video-fallback-jpeg-with-the-newly-uploaded-image-image-1-png-so-that-when-the-video-cannot-be-loaded-the-site-displays-this-new-image-instead-of-the-previously-used-office-image",
+      "title": "Replace the Home page VideoSection fallback image (served at public URL `/assets/video-fallback.jpeg`) with the newly uploaded image (`image-1.png`) so that when the video cannot be loaded, the site displays this new image instead of the previously used office image.",
+      "reqIds": [
+        "REQ-38"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -282,12 +324,6 @@
       "status": "pending"
     },
     {
-      "id": "AR-11",
-      "summary": "Update site copy/service area messaging to indicate coverage is across Europe, explicitly mentioning UK, USA, Canada, Italy (and similar destinations) as examples.",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
       "id": "AR-12",
       "summary": "Increase prominence of 'Contact Us' across the site (e.g., more/stronger CTAs and contact prompts).",
       "reqIds": [],
@@ -297,14 +333,6 @@
       "id": "AR-13",
       "summary": "Remove “Same day delivery” from site content/service listings (e.g., Services page, home services preview, and any related copy).",
       "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-14",
-      "summary": "Publish (build and deploy) the current application version to the Internet Computer network with no additional feature or content changes.",
-      "reqIds": [
-        "REQ-21"
-      ],
       "status": "pending"
     },
     {
@@ -328,6 +356,24 @@
     {
       "id": "AR-18",
       "summary": "Add/update site content to promote Instagram videos by linking to the Instagram account kkeuroexpress_banga (e.g., “Watch our videos on Instagram”).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-19",
+      "summary": "Update sitewide service coverage wording to remove “Across Europe” and replace it with “Worldwide Shipping” wherever coverage/region messaging appears.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-20",
+      "summary": "Replace the current displayed image with an office image provided by the user (upload/use as a static asset where the image is shown).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-21",
+      "summary": "Add/update the business address on the site to: near Canara Bank, Main Rd, SBS Nagar, 144505.",
       "reqIds": [],
       "status": "pending"
     }

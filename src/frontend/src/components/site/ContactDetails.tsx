@@ -1,4 +1,4 @@
-import { Mail, Phone, Globe, Share2 } from 'lucide-react';
+import { Mail, Phone, Globe, Share2, MapPin } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import { useActor } from '@/hooks/useActor';
 import { useMemo } from 'react';
@@ -35,6 +35,9 @@ export default function ContactDetails() {
     return officialWebsiteUrl.replace(/^https?:\/\//, '');
   }, [officialWebsiteUrl]);
 
+  // Get address with fallback
+  const address = contactDetails?.address || 'Near Canara Bank, Main Rd, SBS Nagar, 144505';
+
   return (
     <div className="space-y-6">
       <div>
@@ -65,6 +68,18 @@ export default function ContactDetails() {
             <p className="font-medium">Phone</p>
             <p className="text-muted-foreground">
               {contactDetails?.phone || '79736-73529'}
+            </p>
+          </div>
+        </div>
+
+        <div className="flex items-start gap-4">
+          <div className="rounded-lg bg-accent/10 p-3">
+            <MapPin className="h-5 w-5 text-accent" />
+          </div>
+          <div>
+            <p className="font-medium">Address</p>
+            <p className="text-muted-foreground">
+              {address}
             </p>
           </div>
         </div>

@@ -7,6 +7,12 @@ export interface None {
     __kind__: "None";
 }
 export type Option<T> = Some<T> | None;
+export interface ContactDetails {
+    email: string;
+    website: string;
+    address: string;
+    phone: string;
+}
 export interface ContactInquiry {
     emailOrPhone: string;
     subject: string;
@@ -27,11 +33,7 @@ export interface backendInterface {
     getAllInquiries(): Promise<Array<ContactInquiry>>;
     getCallerUserProfile(): Promise<UserProfile | null>;
     getCallerUserRole(): Promise<UserRole>;
-    getContactDetails(): Promise<{
-        email: string;
-        website: string;
-        phone: string;
-    }>;
+    getContactDetails(): Promise<ContactDetails>;
     getUserProfile(user: Principal): Promise<UserProfile | null>;
     isCallerAdmin(): Promise<boolean>;
     saveCallerUserProfile(profile: UserProfile): Promise<void>;

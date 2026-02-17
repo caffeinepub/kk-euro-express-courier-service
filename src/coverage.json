@@ -1,35 +1,24 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-11T06:14:53.653Z",
+  "generatedAt": "2026-02-17T08:13:28.318Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 2,
-    "implemented": 2,
+    "total": 1,
+    "implemented": 1,
     "items": [
       {
-        "id": "REQ-32",
-        "summary": "Update the Home page media section (frontend/src/components/site/VideoSection.tsx) to promote the Instagram account `kkeuroexpress_banga` by changing the section copy to “Watch our videos on Instagram” (English) and adding a clear outbound link/button that opens the Instagram profile at `https://instagram.com/kkeuroexpress_banga` in a new tab.",
+        "id": "REQ-38",
+        "summary": "Replace the Home page VideoSection fallback image (served at public URL `/assets/video-fallback.jpeg`) with the newly uploaded image (`image-1.png`) so that when the video cannot be loaded, the site displays this new image instead of the previously used office image.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/site/VideoSection.tsx"
+          "frontend/public/assets/video-fallback.jpeg"
         ],
         "matchedFiles": [
-          "frontend/src/components/site/VideoSection.tsx"
-        ]
-      },
-      {
-        "id": "REQ-33",
-        "summary": "Add an Instagram link in the site footer (frontend/src/components/site/SiteFooter.tsx) that points to `https://instagram.com/kkeuroexpress_banga` and clearly labels the handle in English (e.g., “Instagram: @kkeuroexpress_banga”).",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/site/SiteFooter.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/site/SiteFooter.tsx"
+          "frontend/public/assets/video-fallback.jpeg"
         ]
       }
     ]
@@ -37,10 +26,8 @@
   "changedFiles": [
     "build-request.json",
     "feature_evidence.json",
-    "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/components/site/SiteFooter.tsx",
-    "frontend/src/components/site/VideoSection.tsx",
+    "frontend/public/assets/video-fallback.jpeg",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

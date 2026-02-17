@@ -10,7 +10,7 @@ const steps = [
   {
     icon: <Truck className="h-12 w-12" />,
     title: 'We Ship',
-    description: 'Your package is processed and shipped through our optimized Europe-wide network to destinations including the UK, USA, Canada, Italy, and more.',
+    description: 'Your package is processed and shipped through our optimized worldwide shipping network to destinations including the UK, USA, Canada, Italy, and more.',
   },
   {
     icon: <CheckCircle className="h-12 w-12" />,

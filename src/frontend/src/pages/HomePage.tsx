@@ -19,11 +19,11 @@ export default function HomePage() {
             </div>
             <h1 className="font-display">
               Your Trusted Partner for{' '}
-              <span className="text-accent">Europe-Wide Deliveries</span>
+              <span className="text-accent">Worldwide Shipping</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl">
-              KK Euro Express delivers your packages across Europe and to international destinations including the UK, USA, Canada, Italy, and more.
-              From express priority delivery to international freight, we've got you covered.
+              KK Euro Express delivers your packages worldwide with express priority delivery and international freight solutions.
+              From the UK, USA, Canada, Italy to destinations around the globe, we've got you covered.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" className="bg-accent hover:bg-accent/90">

@@ -34,6 +34,13 @@ actor {
 
   let userProfiles = Map.empty<Principal, UserProfile>();
 
+  public type ContactDetails = {
+    website : Text;
+    email : Text;
+    phone : Text;
+    address : Text;
+  };
+
   // Contact form functionality
   public shared func submitInquiry(name : Text, emailOrPhone : Text, subject : Text, message : Text) : async () {
     // No authorization check - contact forms should be publicly accessible to everyone including guests
@@ -42,7 +49,7 @@ actor {
       emailOrPhone;
       subject;
       message;
-      timestamp = 0; // In a production environment, use Time.now() here.
+      timestamp = 0; // In a live environment use Time.now() here
     };
     inquiries.add(inquiry);
   };
@@ -54,21 +61,18 @@ actor {
     inquiries.toArray();
   };
 
-  public query ({ caller }) func getContactDetails() : async {
-    website : Text;
-    email : Text;
-    phone : Text;
-  } {
+  public query func getContactDetails() : async ContactDetails {
     {
       website = "www.business-website.com";
       email = "eurobanga@gmail.com";
       phone = "79736-73529";
+      address = "Near Canara Bank, Main Rd, SBS Nagar, 144505";
     };
   };
 
   public query ({ caller }) func getCallerUserProfile() : async ?UserProfile {
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can access profiles");
+      Runtime.trap("Unauthorized: Only users can access their profiles");
     };
     userProfiles.get(caller);
   };

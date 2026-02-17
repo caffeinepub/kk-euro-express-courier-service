@@ -10,6 +10,12 @@ import type { ActorMethod } from '@icp-sdk/core/agent';
 import type { IDL } from '@icp-sdk/core/candid';
 import type { Principal } from '@icp-sdk/core/principal';
 
+export interface ContactDetails {
+  'email' : string,
+  'website' : string,
+  'address' : string,
+  'phone' : string,
+}
 export interface ContactInquiry {
   'emailOrPhone' : string,
   'subject' : string,
@@ -27,10 +33,7 @@ export interface _SERVICE {
   'getAllInquiries' : ActorMethod<[], Array<ContactInquiry>>,
   'getCallerUserProfile' : ActorMethod<[], [] | [UserProfile]>,
   'getCallerUserRole' : ActorMethod<[], UserRole>,
-  'getContactDetails' : ActorMethod<
-    [],
-    { 'email' : string, 'website' : string, 'phone' : string }
-  >,
+  'getContactDetails' : ActorMethod<[], ContactDetails>,
   'getUserProfile' : ActorMethod<[Principal], [] | [UserProfile]>,
   'isCallerAdmin' : ActorMethod<[], boolean>,
   'saveCallerUserProfile' : ActorMethod<[UserProfile], undefined>,

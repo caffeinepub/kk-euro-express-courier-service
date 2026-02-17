@@ -5,7 +5,7 @@ const valueProps = [
   {
     icon: <Zap className="h-10 w-10" />,
     title: 'Lightning Fast',
-    description: 'Express delivery options with rapid service across Europe and to international destinations.',
+    description: 'Express delivery options with rapid service to international destinations worldwide.',
   },
   {
     icon: <Shield className="h-10 w-10" />,
@@ -14,8 +14,8 @@ const valueProps = [
   },
   {
     icon: <Globe className="h-10 w-10" />,
-    title: 'Europe-Wide & International',
-    description: 'Extensive network spanning Europe and reaching international destinations including the UK, USA, Canada, Italy, and more.',
+    title: 'Worldwide Shipping',
+    description: 'Extensive network providing worldwide shipping to international destinations including the UK, USA, Canada, Italy, and more.',
   },
   {
     icon: <Clock className="h-10 w-10" />,

@@ -60,7 +60,7 @@ export default function VideoSection() {
           <div className="relative rounded-lg overflow-hidden shadow-soft bg-muted/30">
             <img
               src="/assets/video-fallback.jpeg"
-              alt="KK Euro Express Courier storefront showing DHL, FedEx, UPS, and international courier services"
+              alt="KK Euro Express office storefront with courier service signage"
               className="w-full h-auto object-cover"
             />
           </div>
