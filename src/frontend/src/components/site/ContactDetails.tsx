@@ -1,13 +1,13 @@
-import { Mail, Phone, Globe, Share2, MapPin } from 'lucide-react';
-import { useQuery } from '@tanstack/react-query';
-import { useActor } from '@/hooks/useActor';
-import { useMemo } from 'react';
+import { useActor } from "@/hooks/useActor";
+import { useQuery } from "@tanstack/react-query";
+import { Globe, Mail, MapPin, Phone, Share2 } from "lucide-react";
+import { useMemo } from "react";
 
 export default function ContactDetails() {
   const { actor, isFetching } = useActor();
 
   const { data: contactDetails } = useQuery({
-    queryKey: ['contactDetails'],
+    queryKey: ["contactDetails"],
     queryFn: async () => {
       if (!actor) return null;
       return actor.getContactDetails();
@@ -15,35 +15,34 @@ export default function ContactDetails() {
     enabled: !!actor && !isFetching,
   });
 
-  // Compute the official website URL
   const officialWebsiteUrl = useMemo(() => {
-    // Prefer backend website if available and not a placeholder
-    if (contactDetails?.website && contactDetails.website !== 'www.business-website.com') {
-      // Ensure it has a protocol
+    if (
+      contactDetails?.website &&
+      contactDetails.website !== "www.business-website.com"
+    ) {
       const website = contactDetails.website;
-      if (website.startsWith('http://') || website.startsWith('https://')) {
+      if (website.startsWith("http://") || website.startsWith("https://")) {
         return website;
       }
       return `https://${website}`;
     }
-    // Fallback to current origin
     return window.location.origin;
   }, [contactDetails?.website]);
 
-  // Display-friendly version (without protocol for cleaner look)
   const displayWebsite = useMemo(() => {
-    return officialWebsiteUrl.replace(/^https?:\/\//, '');
+    return officialWebsiteUrl.replace(/^https?:\/\//, "");
   }, [officialWebsiteUrl]);
 
-  // Get address with fallback
-  const address = contactDetails?.address || 'Near Canara Bank, Main Rd, SBS Nagar, 144505';
+  const address =
+    contactDetails?.address || "Near Canara Bank, Main Rd, SBS Nagar, 144505";
 
   return (
     <div className="space-y-6">
       <div>
         <h3 className="mb-4 text-2xl font-bold">Contact Information</h3>
         <p className="text-muted-foreground">
-          Get in touch with us for any inquiries or support. Our team is available 24/7 to assist you.
+          Get in touch with us for any inquiries or support. Our team is
+          available 24/7 to assist you.
         </p>
       </div>
 
@@ -55,7 +54,7 @@ export default function ContactDetails() {
           <div>
             <p className="font-medium">Email</p>
             <p className="text-muted-foreground">
-              {contactDetails?.email || 'eurobanga@gmail.com'}
+              {contactDetails?.email || "eurobanga@gmail.com"}
             </p>
           </div>
         </div>
@@ -67,7 +66,7 @@ export default function ContactDetails() {
           <div>
             <p className="font-medium">Phone</p>
             <p className="text-muted-foreground">
-              {contactDetails?.phone || '79736-73529'}
+              {contactDetails?.phone || "79736-73529"}
             </p>
           </div>
         </div>
@@ -78,9 +77,7 @@ export default function ContactDetails() {
           </div>
           <div>
             <p className="font-medium">Address</p>
-            <p className="text-muted-foreground">
-              {address}
-            </p>
+            <p className="text-muted-foreground">{address}</p>
           </div>
         </div>
 
@@ -90,7 +87,7 @@ export default function ContactDetails() {
           </div>
           <div>
             <p className="font-medium">Website</p>
-            <a 
+            <a
               href={officialWebsiteUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -118,6 +115,7 @@ export default function ContactDetails() {
                 {officialWebsiteUrl}
               </code>
               <button
+                type="button"
                 onClick={() => {
                   navigator.clipboard.writeText(officialWebsiteUrl);
                 }}

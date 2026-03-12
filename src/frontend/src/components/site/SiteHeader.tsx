@@ -1,14 +1,14 @@
-import { Link, useRouterState } from '@tanstack/react-router';
-import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Link, useRouterState } from "@tanstack/react-router";
+import { Menu } from "lucide-react";
+import { useState } from "react";
 
 const navLinks = [
-  { path: '/', label: 'Home' },
-  { path: '/services', label: 'Services' },
-  { path: '/about', label: 'About' },
-  { path: '/contact', label: 'Contact' },
+  { path: "/", label: "Home" },
+  { path: "/services", label: "Services" },
+  { path: "/about", label: "About" },
+  { path: "/contact", label: "Contact" },
 ];
 
 export default function SiteHeader() {
@@ -36,10 +36,11 @@ export default function SiteHeader() {
             <Link
               key={link.path}
               to={link.path}
+              data-ocid={`nav.${link.label.toLowerCase()}.link`}
               className={`px-4 py-2 text-sm font-medium transition-colors rounded-md ${
                 currentPath === link.path
-                  ? 'bg-accent text-accent-foreground'
-                  : 'text-foreground/80 hover:bg-accent/10 hover:text-foreground'
+                  ? "bg-accent text-accent-foreground"
+                  : "text-foreground/80 hover:bg-accent/10 hover:text-foreground"
               }`}
             >
               {link.label}
@@ -48,6 +49,17 @@ export default function SiteHeader() {
           <Button asChild className="ml-4 bg-accent hover:bg-accent/90">
             <Link to="/contact">Contact Us</Link>
           </Button>
+          <Link
+            to="/admin"
+            data-ocid="nav.admin.link"
+            className={`ml-2 px-3 py-1.5 text-xs font-medium transition-colors rounded-md ${
+              currentPath === "/admin"
+                ? "bg-muted text-muted-foreground"
+                : "text-muted-foreground/60 hover:text-muted-foreground hover:bg-muted/50"
+            }`}
+          >
+            Admin
+          </Link>
         </nav>
 
         {/* Mobile Navigation */}
@@ -67,13 +79,21 @@ export default function SiteHeader() {
                   onClick={() => setIsOpen(false)}
                   className={`px-4 py-3 text-base font-medium transition-colors rounded-md ${
                     currentPath === link.path
-                      ? 'bg-accent text-accent-foreground'
-                      : 'text-foreground/80 hover:bg-accent/10 hover:text-foreground'
+                      ? "bg-accent text-accent-foreground"
+                      : "text-foreground/80 hover:bg-accent/10 hover:text-foreground"
                   }`}
                 >
                   {link.label}
                 </Link>
               ))}
+              <Link
+                to="/admin"
+                onClick={() => setIsOpen(false)}
+                data-ocid="nav.admin.link"
+                className="px-4 py-2 text-sm text-muted-foreground/60 hover:text-muted-foreground transition-colors rounded-md"
+              >
+                Admin
+              </Link>
             </nav>
           </SheetContent>
         </Sheet>

@@ -1,21 +1,24 @@
-import { Card, CardContent } from '@/components/ui/card';
-import { Package, Truck, CheckCircle } from 'lucide-react';
+import { Card, CardContent } from "@/components/ui/card";
+import { CheckCircle, Package, Truck } from "lucide-react";
 
 const steps = [
   {
     icon: <Package className="h-12 w-12" />,
-    title: 'Request Pickup',
-    description: 'Schedule a pickup online or by phone. We collect your package from your location.',
+    title: "Request Pickup",
+    description:
+      "Schedule a pickup online or by phone. We collect your package from your location.",
   },
   {
     icon: <Truck className="h-12 w-12" />,
-    title: 'We Ship',
-    description: 'Your package is processed and shipped through our optimized worldwide shipping network to destinations including the UK, USA, Canada, Italy, and more.',
+    title: "We Ship",
+    description:
+      "Your package is processed and shipped through our optimized worldwide shipping network to destinations including the UK, USA, Canada, Italy, and more.",
   },
   {
     icon: <CheckCircle className="h-12 w-12" />,
-    title: 'Delivered',
-    description: 'Safe delivery to the destination with real-time tracking and confirmation.',
+    title: "Delivered",
+    description:
+      "Safe delivery to the destination with real-time tracking and confirmation.",
   },
 ];
 
@@ -23,10 +26,12 @@ export default function HowItWorks() {
   return (
     <div className="grid gap-8 md:grid-cols-3">
       {steps.map((step, index) => (
-        <div key={index} className="relative">
+        <div key={step.title} className="relative">
           <Card className="h-full">
             <CardContent className="pt-6 text-center">
-              <div className="mb-4 flex justify-center text-accent">{step.icon}</div>
+              <div className="mb-4 flex justify-center text-accent">
+                {step.icon}
+              </div>
               <div className="mb-2 flex items-center justify-center gap-2">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent text-sm font-bold text-accent-foreground">
                   {index + 1}

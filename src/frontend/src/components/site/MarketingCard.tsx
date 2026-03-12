@@ -1,5 +1,11 @@
-import { ReactNode } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import type { ReactNode } from "react";
 
 interface MarketingCardProps {
   icon?: ReactNode;
@@ -8,7 +14,12 @@ interface MarketingCardProps {
   className?: string;
 }
 
-export default function MarketingCard({ icon, title, description, className = '' }: MarketingCardProps) {
+export default function MarketingCard({
+  icon,
+  title,
+  description,
+  className = "",
+}: MarketingCardProps) {
   return (
     <Card className={`h-full transition-shadow hover:shadow-soft ${className}`}>
       <CardHeader>
@@ -21,4 +32,3 @@ export default function MarketingCard({ icon, title, description, className = ''
     </Card>
   );
 }
-

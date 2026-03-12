@@ -1,5 +1,5 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { useActor } from './useActor';
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useActor } from "./useActor";
 
 interface InquiryData {
   name: string;
@@ -15,31 +15,30 @@ export function useSubmitInquiry() {
   return useMutation({
     mutationFn: async (data: InquiryData) => {
       if (!actor) {
-        throw new Error('Backend actor not available');
+        throw new Error("Backend actor not available");
       }
 
       if (!data.name.trim()) {
-        throw new Error('Name is required');
+        throw new Error("Name is required");
       }
 
       if (!data.emailOrPhone.trim()) {
-        throw new Error('Email or phone is required');
+        throw new Error("Email or phone is required");
       }
 
       if (!data.message.trim()) {
-        throw new Error('Message is required');
+        throw new Error("Message is required");
       }
 
       await actor.submitInquiry(
         data.name,
         data.emailOrPhone,
-        data.subject || '',
-        data.message
+        data.subject || "",
+        data.message,
       );
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['inquiries'] });
+      queryClient.invalidateQueries({ queryKey: ["inquiries"] });
     },
   });
 }
-

@@ -1,28 +1,32 @@
-import { Award, Users, Target, TrendingUp } from 'lucide-react';
-import Section from '@/components/site/Section';
-import CoverageSection from '@/components/site/CoverageSection';
-import { Card, CardContent } from '@/components/ui/card';
+import CoverageSection from "@/components/site/CoverageSection";
+import Section from "@/components/site/Section";
+import { Card, CardContent } from "@/components/ui/card";
+import { Award, Target, TrendingUp, Users } from "lucide-react";
 
 const values = [
   {
     icon: <Award className="h-8 w-8" />,
-    title: 'Excellence',
-    description: 'We strive for excellence in every delivery, ensuring the highest standards of service quality.',
+    title: "Excellence",
+    description:
+      "We strive for excellence in every delivery, ensuring the highest standards of service quality.",
   },
   {
     icon: <Users className="h-8 w-8" />,
-    title: 'Customer Focus',
-    description: 'Our customers are at the heart of everything we do. Your satisfaction is our success.',
+    title: "Customer Focus",
+    description:
+      "Our customers are at the heart of everything we do. Your satisfaction is our success.",
   },
   {
     icon: <Target className="h-8 w-8" />,
-    title: 'Reliability',
-    description: 'Dependable service you can count on, with on-time delivery and transparent communication.',
+    title: "Reliability",
+    description:
+      "Dependable service you can count on, with on-time delivery and transparent communication.",
   },
   {
     icon: <TrendingUp className="h-8 w-8" />,
-    title: 'Innovation',
-    description: 'Continuously improving our services with cutting-edge technology and efficient processes.',
+    title: "Innovation",
+    description:
+      "Continuously improving our services with cutting-edge technology and efficient processes.",
   },
 ];
 
@@ -34,7 +38,9 @@ export default function AboutPage() {
         <div className="text-center max-w-3xl mx-auto">
           <h1 className="mb-6 font-display">About KK Euro Express</h1>
           <p className="text-xl text-muted-foreground">
-            Your trusted partner for fast, reliable, and secure courier services with worldwide shipping to the UK, USA, Canada, Italy, and destinations around the globe.
+            Your trusted partner for fast, reliable, and secure courier services
+            with worldwide shipping to the UK, USA, Canada, Italy, and
+            destinations around the globe.
           </p>
         </div>
       </Section>
@@ -46,19 +52,25 @@ export default function AboutPage() {
             <h2 className="mb-6 font-display">Who We Are</h2>
             <div className="space-y-4 text-muted-foreground">
               <p>
-                KK Euro Express is a leading courier and logistics company specializing in fast, reliable deliveries
-                worldwide. With years of experience in the industry, we've built a reputation for excellence,
-                security, and customer satisfaction.
+                KK Euro Express is a leading courier and logistics company
+                specializing in fast, reliable deliveries worldwide. With years
+                of experience in the industry, we've built a reputation for
+                excellence, security, and customer satisfaction.
               </p>
               <p>
-                Our extensive network provides worldwide shipping solutions, reaching key international destinations including the UK, USA, Canada, Italy, and more, enabling us to provide seamless shipping
-                solutions for businesses and individuals alike. From small parcels to large freight, we handle every
-                shipment with the utmost care and professionalism.
+                Our extensive network provides worldwide shipping solutions,
+                reaching key international destinations including the UK, USA,
+                Canada, Italy, and more, enabling us to provide seamless
+                shipping solutions for businesses and individuals alike. From
+                small parcels to large freight, we handle every shipment with
+                the utmost care and professionalism.
               </p>
               <p>
-                We combine traditional courier expertise with modern technology to offer real-time tracking,
-                flexible delivery options, and exceptional customer service. Our team of dedicated professionals
-                works around the clock to ensure your packages arrive safely and on time.
+                We combine traditional courier expertise with modern technology
+                to offer real-time tracking, flexible delivery options, and
+                exceptional customer service. Our team of dedicated
+                professionals works around the clock to ensure your packages
+                arrive safely and on time.
               </p>
             </div>
           </div>
@@ -77,16 +89,21 @@ export default function AboutPage() {
         <div className="mb-12 text-center">
           <h2 className="mb-4 font-display">Our Mission & Values</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            We're committed to delivering excellence through reliability, innovation, and customer-focused service.
+            We're committed to delivering excellence through reliability,
+            innovation, and customer-focused service.
           </p>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {values.map((value, index) => (
-            <Card key={index} className="text-center">
+          {values.map((value) => (
+            <Card key={value.title} className="text-center">
               <CardContent className="pt-6">
-                <div className="mb-4 flex justify-center text-accent">{value.icon}</div>
+                <div className="mb-4 flex justify-center text-accent">
+                  {value.icon}
+                </div>
                 <h3 className="mb-2 text-lg font-bold">{value.title}</h3>
-                <p className="text-sm text-muted-foreground">{value.description}</p>
+                <p className="text-sm text-muted-foreground">
+                  {value.description}
+                </p>
               </CardContent>
             </Card>
           ))}
@@ -98,7 +115,8 @@ export default function AboutPage() {
         <div className="mb-12 text-center">
           <h2 className="mb-4 font-display">Our Coverage</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Worldwide shipping network reaching international destinations including the UK, USA, Canada, Italy, and more.
+            Worldwide shipping network reaching international destinations
+            including the UK, USA, Canada, Italy, and more.
           </p>
         </div>
         <CoverageSection />

@@ -1,39 +1,49 @@
-import { RouterProvider, createRouter, createRoute, createRootRoute } from '@tanstack/react-router';
-import SiteLayout from './components/site/SiteLayout';
-import HomePage from './pages/HomePage';
-import ServicesPage from './pages/ServicesPage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
+import {
+  RouterProvider,
+  createRootRoute,
+  createRoute,
+  createRouter,
+} from "@tanstack/react-router";
+import SiteLayout from "./components/site/SiteLayout";
+import AboutPage from "./pages/AboutPage";
+import AdminPage from "./pages/AdminPage";
+import ContactPage from "./pages/ContactPage";
+import HomePage from "./pages/HomePage";
+import ServicesPage from "./pages/ServicesPage";
 
 // Root route with shared layout
 const rootRoute = createRootRoute({
   component: SiteLayout,
 });
 
-// Route definitions - these paths remain unchanged and stable
-// No new routes are introduced for video embedding; video is part of Home page UI only
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/',
+  path: "/",
   component: HomePage,
 });
 
 const servicesRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/services',
+  path: "/services",
   component: ServicesPage,
 });
 
 const aboutRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/about',
+  path: "/about",
   component: AboutPage,
 });
 
 const contactRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/contact',
+  path: "/contact",
   component: ContactPage,
+});
+
+const adminRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/admin",
+  component: AdminPage,
 });
 
 const routeTree = rootRoute.addChildren([
@@ -41,11 +51,12 @@ const routeTree = rootRoute.addChildren([
   servicesRoute,
   aboutRoute,
   contactRoute,
+  adminRoute,
 ]);
 
 const router = createRouter({ routeTree });
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface Register {
     router: typeof router;
   }
@@ -54,4 +65,3 @@ declare module '@tanstack/react-router' {
 export default function App() {
   return <RouterProvider router={router} />;
 }
-

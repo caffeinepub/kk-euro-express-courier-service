@@ -1,38 +1,44 @@
-import { useState } from 'react';
-import { Loader2 } from 'lucide-react';
-import Section from '@/components/site/Section';
-import ContactDetails from '@/components/site/ContactDetails';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { useSubmitInquiry } from '@/hooks/useSubmitInquiry';
+import ContactDetails from "@/components/site/ContactDetails";
+import Section from "@/components/site/Section";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { useSubmitInquiry } from "@/hooks/useSubmitInquiry";
+import { Loader2 } from "lucide-react";
+import { useState } from "react";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-    name: '',
-    emailOrPhone: '',
-    subject: '',
-    message: '',
+    name: "",
+    emailOrPhone: "",
+    subject: "",
+    message: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const { mutate: submitInquiry, isPending, isSuccess, isError, error } = useSubmitInquiry();
+  const {
+    mutate: submitInquiry,
+    isPending,
+    isSuccess,
+    isError,
+    error,
+  } = useSubmitInquiry();
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
+      newErrors.name = "Name is required";
     }
 
     if (!formData.emailOrPhone.trim()) {
-      newErrors.emailOrPhone = 'Email or phone is required';
+      newErrors.emailOrPhone = "Email or phone is required";
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
+      newErrors.message = "Message is required";
     }
 
     setErrors(newErrors);
@@ -49,10 +55,10 @@ export default function ContactPage() {
     submitInquiry(formData, {
       onSuccess: () => {
         setFormData({
-          name: '',
-          emailOrPhone: '',
-          subject: '',
-          message: '',
+          name: "",
+          emailOrPhone: "",
+          subject: "",
+          message: "",
         });
         setErrors({});
       },
@@ -62,7 +68,7 @@ export default function ContactPage() {
   const handleChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
     if (errors[field]) {
-      setErrors((prev) => ({ ...prev, [field]: '' }));
+      setErrors((prev) => ({ ...prev, [field]: "" }));
     }
   };
 
@@ -73,7 +79,8 @@ export default function ContactPage() {
         <div className="text-center max-w-3xl mx-auto">
           <h1 className="mb-6 font-display">Contact Us</h1>
           <p className="text-xl text-muted-foreground">
-            Have a question or need a quote? Get in touch with our team and we'll respond as soon as possible.
+            Have a question or need a quote? Get in touch with our team and
+            we'll respond as soon as possible.
           </p>
         </div>
       </Section>
@@ -92,11 +99,13 @@ export default function ContactPage() {
                 <Input
                   id="name"
                   value={formData.name}
-                  onChange={(e) => handleChange('name', e.target.value)}
+                  onChange={(e) => handleChange("name", e.target.value)}
                   placeholder="Your full name"
-                  className={errors.name ? 'border-destructive' : ''}
+                  className={errors.name ? "border-destructive" : ""}
                 />
-                {errors.name && <p className="text-sm text-destructive">{errors.name}</p>}
+                {errors.name && (
+                  <p className="text-sm text-destructive">{errors.name}</p>
+                )}
               </div>
 
               <div className="space-y-2">
@@ -106,11 +115,15 @@ export default function ContactPage() {
                 <Input
                   id="emailOrPhone"
                   value={formData.emailOrPhone}
-                  onChange={(e) => handleChange('emailOrPhone', e.target.value)}
+                  onChange={(e) => handleChange("emailOrPhone", e.target.value)}
                   placeholder="your@email.com or phone number"
-                  className={errors.emailOrPhone ? 'border-destructive' : ''}
+                  className={errors.emailOrPhone ? "border-destructive" : ""}
                 />
-                {errors.emailOrPhone && <p className="text-sm text-destructive">{errors.emailOrPhone}</p>}
+                {errors.emailOrPhone && (
+                  <p className="text-sm text-destructive">
+                    {errors.emailOrPhone}
+                  </p>
+                )}
               </div>
 
               <div className="space-y-2">
@@ -118,7 +131,7 @@ export default function ContactPage() {
                 <Input
                   id="subject"
                   value={formData.subject}
-                  onChange={(e) => handleChange('subject', e.target.value)}
+                  onChange={(e) => handleChange("subject", e.target.value)}
                   placeholder="What is this regarding?"
                 />
               </div>
@@ -130,18 +143,21 @@ export default function ContactPage() {
                 <Textarea
                   id="message"
                   value={formData.message}
-                  onChange={(e) => handleChange('message', e.target.value)}
+                  onChange={(e) => handleChange("message", e.target.value)}
                   placeholder="Tell us more about your inquiry..."
                   rows={6}
-                  className={errors.message ? 'border-destructive' : ''}
+                  className={errors.message ? "border-destructive" : ""}
                 />
-                {errors.message && <p className="text-sm text-destructive">{errors.message}</p>}
+                {errors.message && (
+                  <p className="text-sm text-destructive">{errors.message}</p>
+                )}
               </div>
 
               {isSuccess && (
                 <Alert className="bg-accent/10 border-accent">
                   <AlertDescription className="text-accent-foreground">
-                    Thank you for your message! We'll get back to you as soon as possible.
+                    Thank you for your message! We'll get back to you as soon as
+                    possible.
                   </AlertDescription>
                 </Alert>
               )}
@@ -149,19 +165,25 @@ export default function ContactPage() {
               {isError && (
                 <Alert variant="destructive">
                   <AlertDescription>
-                    {error?.message || 'Failed to submit inquiry. Please try again.'}
+                    {error?.message ||
+                      "Failed to submit inquiry. Please try again."}
                   </AlertDescription>
                 </Alert>
               )}
 
-              <Button type="submit" size="lg" className="w-full" disabled={isPending}>
+              <Button
+                type="submit"
+                size="lg"
+                className="w-full"
+                disabled={isPending}
+              >
                 {isPending ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                     Sending...
                   </>
                 ) : (
-                  'Send Message'
+                  "Send Message"
                 )}
               </Button>
             </form>

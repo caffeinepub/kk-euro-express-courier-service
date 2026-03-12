@@ -1,23 +1,26 @@
-import { Link } from '@tanstack/react-router';
-import { ArrowRight, Truck, Plane, Box } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import MarketingCard from './MarketingCard';
+import { Button } from "@/components/ui/button";
+import { Link } from "@tanstack/react-router";
+import { ArrowRight, Box, Plane, Truck } from "lucide-react";
+import MarketingCard from "./MarketingCard";
 
 const services = [
   {
     icon: <Truck className="h-10 w-10" />,
-    title: 'Express Delivery',
-    description: 'Fast priority delivery for urgent shipments with worldwide shipping to international destinations.',
+    title: "Express Delivery",
+    description:
+      "Fast priority delivery for urgent shipments with worldwide shipping to international destinations.",
   },
   {
     icon: <Plane className="h-10 w-10" />,
-    title: 'International Freight',
-    description: 'Comprehensive air and ground freight solutions for worldwide shipping to the UK, USA, Canada, Italy, and more.',
+    title: "International Freight",
+    description:
+      "Comprehensive air and ground freight solutions for worldwide shipping to the UK, USA, Canada, Italy, and more.",
   },
   {
     icon: <Box className="h-10 w-10" />,
-    title: 'Standard Shipping',
-    description: 'Cost-effective standard delivery with reliable 3-5 day transit times.',
+    title: "Standard Shipping",
+    description:
+      "Cost-effective standard delivery with reliable 3-5 day transit times.",
   },
 ];
 
@@ -25,9 +28,9 @@ export default function ServicesPreview() {
   return (
     <div className="space-y-8">
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {services.map((service, index) => (
+        {services.map((service) => (
           <MarketingCard
-            key={index}
+            key={service.title}
             icon={service.icon}
             title={service.title}
             description={service.description}

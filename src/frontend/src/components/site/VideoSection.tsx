@@ -1,18 +1,8 @@
-import { useState } from 'react';
-import Section from './Section';
-import { Button } from '@/components/ui/button';
-import { SiInstagram } from 'react-icons/si';
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { SiInstagram } from "react-icons/si";
+import Section from "./Section";
 
-/**
- * VideoSection component embeds a static video asset from the frontend public directory.
- * 
- * Expected video path: frontend/public/assets/watch-our-video.mp4
- * Fallback image path: frontend/public/assets/video-fallback.jpeg
- * Recommended format: MP4 (H.264 codec for broad browser compatibility)
- * 
- * The video is served as a static frontend asset (no backend hosting).
- * If the video fails to load, a fallback image is displayed instead.
- */
 export default function VideoSection() {
   const [hasError, setHasError] = useState(false);
 
@@ -27,11 +17,7 @@ export default function VideoSection() {
         <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-6">
           See how KK Euro Express delivers excellence across Europe and beyond.
         </p>
-        <Button
-          asChild
-          size="lg"
-          className="gap-2"
-        >
+        <Button asChild size="lg" className="gap-2">
           <a
             href="https://instagram.com/kkeuroexpress_banga"
             target="_blank"
@@ -42,7 +28,7 @@ export default function VideoSection() {
           </a>
         </Button>
       </div>
-      
+
       <div className="max-w-4xl mx-auto">
         {!hasError ? (
           <div className="relative rounded-lg overflow-hidden shadow-soft bg-muted/30">
@@ -53,6 +39,7 @@ export default function VideoSection() {
               preload="metadata"
             >
               <source src="/assets/watch-our-video.mp4" type="video/mp4" />
+              <track kind="captions" />
               Your browser does not support the video tag.
             </video>
           </div>

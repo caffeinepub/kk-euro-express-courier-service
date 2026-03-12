@@ -1,12 +1,13 @@
-import { Link } from '@tanstack/react-router';
-import { Heart, MapPin } from 'lucide-react';
-import { SiInstagram } from 'react-icons/si';
+import { Link } from "@tanstack/react-router";
+import { Heart, MapPin } from "lucide-react";
+import { SiInstagram } from "react-icons/si";
 
 export default function SiteFooter() {
   const currentYear = new Date().getFullYear();
-  const appIdentifier = typeof window !== 'undefined' 
-    ? encodeURIComponent(window.location.hostname) 
-    : 'kk-euro-express';
+  const appIdentifier =
+    typeof window !== "undefined"
+      ? encodeURIComponent(window.location.hostname)
+      : "kk-euro-express";
 
   return (
     <footer className="border-t bg-muted/30">
@@ -25,7 +26,8 @@ export default function SiteFooter() {
               </span>
             </div>
             <p className="text-sm text-muted-foreground">
-              Fast, reliable courier services with worldwide shipping to the UK, USA, Canada, Italy, and destinations around the globe.
+              Fast, reliable courier services with worldwide shipping to the UK,
+              USA, Canada, Italy, and destinations around the globe.
             </p>
           </div>
 
@@ -34,22 +36,34 @@ export default function SiteFooter() {
             <h3 className="mb-4 text-sm font-semibold">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link
+                  to="/"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link
+                  to="/services"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
                   Services
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link
+                  to="/about"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
                   About
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Link
+                  to="/contact"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
                   Contact
                 </Link>
               </li>
@@ -93,11 +107,10 @@ export default function SiteFooter() {
         </div>
 
         <div className="mt-12 border-t pt-8 text-center text-sm text-muted-foreground">
-          <p>
-            © {currentYear} KK Euro Express. All rights reserved.
-          </p>
+          <p>© {currentYear} KK Euro Express. All rights reserved.</p>
           <p className="mt-2 flex items-center justify-center gap-1">
-            Built with <Heart className="h-4 w-4 fill-red-500 text-red-500" /> using{' '}
+            Built with <Heart className="h-4 w-4 fill-red-500 text-red-500" />{" "}
+            using{" "}
             <a
               href={`https://caffeine.ai/?utm_source=Caffeine-footer&utm_medium=referral&utm_content=${appIdentifier}`}
               target="_blank"
