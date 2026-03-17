@@ -1,19 +1,27 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useActor } from "@/hooks/useActor";
 import { useGetAllInquiries } from "@/hooks/useGetAllInquiries";
 import { useInternetIdentity } from "@/hooks/useInternetIdentity";
+import { useQueryClient } from "@tanstack/react-query";
 import {
+  ChevronDown,
+  ChevronUp,
   Clock,
   Inbox,
+  KeyRound,
   LogIn,
   Mail,
   MessageSquare,
   Phone,
+  ShieldCheck,
   ShieldOff,
   User,
 } from "lucide-react";
+import { useState } from "react";
 
 function formatTimestamp(ts: bigint): string {
   const ms = Number(ts / BigInt(1_000_000));
@@ -27,6 +35,8 @@ export default function AdminPage() {
   const { identity, login, isLoggingIn, isInitializing } =
     useInternetIdentity();
   const isLoggedIn = !!identity;
+  const { actor } = useActor();
+  const queryClient = useQueryClient();
 
   const { data: inquiries, isLoading, error } = useGetAllInquiries();
 
@@ -36,6 +46,31 @@ export default function AdminPage() {
   const sorted = inquiries
     ? [...inquiries].sort((a, b) => Number(b.timestamp - a.timestamp))
     : [];
+
+  // Claim admin state
+  const [claimOpen, setClaimOpen] = useState(false);
+  const [tokenValue, setTokenValue] = useState("");
+  const [claimStatus, setClaimStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+  const [claimError, setClaimError] = useState("");
+
+  async function handleClaim() {
+    if (!actor || !tokenValue.trim()) return;
+    setClaimStatus("loading");
+    setClaimError("");
+    try {
+      await (actor as any)._claimAdminRole(tokenValue.trim());
+      setClaimStatus("success");
+      queryClient.invalidateQueries();
+    } catch (e: any) {
+      setClaimStatus("error");
+      setClaimError(
+        e?.message ||
+          "Invalid token or admin already assigned. Please try again.",
+      );
+    }
+  }
 
   return (
     <div data-ocid="admin.page" className="min-h-screen bg-muted/30 py-12 px-4">
@@ -90,20 +125,120 @@ export default function AdminPage() {
 
         {/* Unauthorized */}
         {isLoggedIn && isUnauthorized && (
-          <Card className="border-destructive/30 shadow-sm">
-            <CardContent className="py-16 flex flex-col items-center gap-4">
-              <div className="w-14 h-14 rounded-full bg-destructive/10 flex items-center justify-center">
-                <ShieldOff className="w-6 h-6 text-destructive" />
-              </div>
-              <p className="text-foreground font-semibold text-lg">
-                Access Denied
-              </p>
-              <p className="text-muted-foreground text-sm text-center max-w-xs">
-                You don't have admin access. Contact the site owner to grant you
-                admin permissions.
-              </p>
-            </CardContent>
-          </Card>
+          <div className="space-y-4">
+            <Card className="border-destructive/30 shadow-sm">
+              <CardContent className="py-16 flex flex-col items-center gap-4">
+                <div className="w-14 h-14 rounded-full bg-destructive/10 flex items-center justify-center">
+                  <ShieldOff className="w-6 h-6 text-destructive" />
+                </div>
+                <p className="text-foreground font-semibold text-lg">
+                  Access Denied
+                </p>
+                <p className="text-muted-foreground text-sm text-center max-w-xs">
+                  You don't have admin access. Contact the site owner to grant
+                  you admin permissions.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Claim admin section */}
+            <Card className="border-border shadow-sm">
+              <button
+                type="button"
+                onClick={() => {
+                  setClaimOpen((v) => !v);
+                  setClaimStatus("idle");
+                  setClaimError("");
+                }}
+                className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-muted/40 transition-colors rounded-t-lg"
+                aria-expanded={claimOpen}
+              >
+                <div className="flex items-center gap-2">
+                  <KeyRound className="w-4 h-4 text-muted-foreground" />
+                  <span className="font-medium text-sm text-foreground">
+                    Are you the site owner?
+                  </span>
+                </div>
+                {claimOpen ? (
+                  <ChevronUp className="w-4 h-4 text-muted-foreground" />
+                ) : (
+                  <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                )}
+              </button>
+
+              {claimOpen && (
+                <CardContent className="pt-0 pb-6 border-t border-border">
+                  {claimStatus === "success" ? (
+                    <div
+                      data-ocid="admin.success_state"
+                      className="flex flex-col items-center gap-3 py-6"
+                    >
+                      <div className="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center">
+                        <ShieldCheck className="w-6 h-6 text-green-600" />
+                      </div>
+                      <p className="font-semibold text-foreground">
+                        Admin access granted!
+                      </p>
+                      <p className="text-muted-foreground text-sm text-center">
+                        Refresh the page to view customer inquiries.
+                      </p>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => window.location.reload()}
+                        className="mt-1"
+                      >
+                        Refresh now
+                      </Button>
+                    </div>
+                  ) : (
+                    <div className="space-y-4 pt-4">
+                      <p className="text-sm text-muted-foreground">
+                        Enter the admin token from your{" "}
+                        <span className="font-medium text-foreground">
+                          Caffeine dashboard → Project Settings
+                        </span>{" "}
+                        to claim admin access.
+                      </p>
+                      <div className="flex gap-2">
+                        <Input
+                          data-ocid="admin.claim_input"
+                          type="password"
+                          placeholder="Enter admin token"
+                          value={tokenValue}
+                          onChange={(e) => setTokenValue(e.target.value)}
+                          onKeyDown={(e) => e.key === "Enter" && handleClaim()}
+                          disabled={claimStatus === "loading"}
+                          className="flex-1"
+                        />
+                        <Button
+                          data-ocid="admin.claim_button"
+                          onClick={handleClaim}
+                          disabled={
+                            claimStatus === "loading" || !tokenValue.trim()
+                          }
+                          className="bg-primary hover:bg-primary/90 shrink-0"
+                        >
+                          {claimStatus === "loading"
+                            ? "Claiming…"
+                            : "Claim Admin Access"}
+                        </Button>
+                      </div>
+                      {claimStatus === "error" && (
+                        <p
+                          data-ocid="admin.error_state"
+                          className="text-sm text-destructive flex items-center gap-1.5"
+                        >
+                          <ShieldOff className="w-3.5 h-3.5 shrink-0" />
+                          {claimError}
+                        </p>
+                      )}
+                    </div>
+                  )}
+                </CardContent>
+              )}
+            </Card>
+          </div>
         )}
 
         {/* Loading */}

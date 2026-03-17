@@ -1,65 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --radius: 0.5rem;
-    /* Courier brand: Deep navy blue primary with vibrant orange accent */
-    --background: 0.98 0 0;
-    --foreground: 0.2 0.02 250;
+    --radius: 0.625rem;
+    /* Vibrant courier brand */
+    --background: 0.98 0.005 60;
+    --foreground: 0.15 0.02 250;
     --card: 1 0 0;
-    --card-foreground: 0.2 0.02 250;
+    --card-foreground: 0.15 0.02 250;
     --popover: 1 0 0;
-    --popover-foreground: 0.2 0.02 250;
-    /* Deep navy blue for primary actions */
-    --primary: 0.35 0.08 250;
+    --popover-foreground: 0.15 0.02 250;
+    /* Deep electric blue-violet */
+    --primary: 0.38 0.18 270;
     --primary-foreground: 0.98 0 0;
-    /* Light gray secondary */
-    --secondary: 0.95 0.005 250;
-    --secondary-foreground: 0.2 0.02 250;
-    --muted: 0.96 0.005 250;
+    /* Electric teal */
+    --secondary: 0.55 0.15 195;
+    --secondary-foreground: 0.98 0 0;
+    --muted: 0.95 0.005 250;
     --muted-foreground: 0.5 0.02 250;
-    /* Vibrant orange accent for CTAs and highlights */
-    --accent: 0.65 0.18 35;
+    /* Vivid orange */
+    --accent: 0.68 0.2 48;
     --accent-foreground: 0.98 0 0;
     --destructive: 0.55 0.22 25;
     --destructive-foreground: 0.98 0 0;
-    --border: 0.9 0.005 250;
-    --input: 0.9 0.005 250;
-    --ring: 0.35 0.08 250;
-    --chart-1: 0.65 0.18 35;
-    --chart-2: 0.35 0.08 250;
-    --chart-3: 0.55 0.15 200;
-    --chart-4: 0.7 0.12 120;
-    --chart-5: 0.6 0.2 320;
-  }
-
-  .dark {
-    --background: 0.15 0.02 250;
-    --foreground: 0.95 0.005 250;
-    --card: 0.2 0.02 250;
-    --card-foreground: 0.95 0.005 250;
-    --popover: 0.18 0.02 250;
-    --popover-foreground: 0.95 0.005 250;
-    --primary: 0.65 0.18 35;
-    --primary-foreground: 0.15 0.02 250;
-    --secondary: 0.25 0.02 250;
-    --secondary-foreground: 0.95 0.005 250;
-    --muted: 0.25 0.02 250;
-    --muted-foreground: 0.65 0.01 250;
-    --accent: 0.65 0.18 35;
-    --accent-foreground: 0.98 0 0;
-    --destructive: 0.6 0.22 25;
-    --destructive-foreground: 0.98 0 0;
-    --border: 0.3 0.02 250;
-    --input: 0.3 0.02 250;
-    --ring: 0.65 0.18 35;
-    --chart-1: 0.65 0.18 35;
-    --chart-2: 0.55 0.15 200;
-    --chart-3: 0.7 0.12 120;
-    --chart-4: 0.6 0.2 320;
-    --chart-5: 0.5 0.18 180;
+    --border: 0.88 0.01 250;
+    --input: 0.88 0.01 250;
+    --ring: 0.38 0.18 270;
+    --chart-1: 0.68 0.2 48;
+    --chart-2: 0.38 0.18 270;
+    --chart-3: 0.55 0.15 195;
+    --chart-4: 0.72 0.18 95;
+    --chart-5: 0.6 0.22 0;
   }
 
   * {
@@ -68,7 +43,13 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
+    background-image: url("/assets/uploads/WhatsApp-Image-2025-12-17-at-9.56.35-AM-1-1.jpeg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   h1,
@@ -77,95 +58,179 @@
   h4,
   h5,
   h6 {
+    font-family: "Bricolage Grotesque", sans-serif;
     @apply font-bold tracking-tight;
   }
 
   h1 {
     @apply text-4xl md:text-5xl lg:text-6xl;
   }
-
   h2 {
-    @apply text-3xl md:text-4xl lg:text-5xl;
+    @apply text-3xl md:text-4xl;
   }
-
   h3 {
     @apply text-2xl md:text-3xl;
   }
 }
 
 @layer utilities {
-  /* Hero background with layered gradients and subtle pattern */
-  .hero-background {
+  /* Vibrant gradient text */
+  .gradient-text {
+    background: linear-gradient(
+      135deg,
+      oklch(0.68 0.2 48),
+      oklch(0.6 0.22 25),
+      oklch(0.55 0.18 320)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-teal {
+    background: linear-gradient(
+      135deg,
+      oklch(0.55 0.15 195),
+      oklch(0.45 0.18 250),
+      oklch(0.38 0.18 270)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-gold {
+    background: linear-gradient(135deg, oklch(0.78 0.18 95), oklch(0.68 0.2 48));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Light hero background — dark text always readable */
+  .hero-bg-vibrant {
+    background: linear-gradient(
+      135deg,
+      oklch(0.97 0.015 250) 0%,
+      oklch(0.95 0.025 270) 50%,
+      oklch(0.96 0.018 240) 100%
+    );
     position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-vibrant::before {
+    content: "";
+    position: absolute;
+    inset: 0;
     background: radial-gradient(
-        circle at 20% 50%,
-        oklch(0.96 0.015 250 / 0.6),
+        ellipse at 20% 50%,
+        oklch(0.68 0.2 48 / 0.08) 0%,
+        transparent 55%
+      ),
+      radial-gradient(
+        ellipse at 80% 20%,
+        oklch(0.55 0.15 195 / 0.08) 0%,
         transparent 50%
       ),
       radial-gradient(
-        circle at 80% 30%,
-        oklch(0.68 0.12 35 / 0.08),
-        transparent 40%
-      ),
-      linear-gradient(
-        135deg,
-        oklch(0.97 0.008 250) 0%,
-        oklch(0.98 0 0) 50%,
-        oklch(0.96 0.01 240) 100%
+        ellipse at 60% 80%,
+        oklch(0.38 0.18 270 / 0.07) 0%,
+        transparent 45%
       );
+    pointer-events: none;
   }
 
-  .hero-background::before {
+  .hero-bg-vibrant::after {
     content: "";
     position: absolute;
     inset: 0;
     background-image: radial-gradient(
       circle at 1px 1px,
-      oklch(0.35 0.08 250 / 0.03) 1px,
+      oklch(0.5 0.05 250 / 0.06) 1px,
       transparent 0
     );
-    background-size: 32px 32px;
-    mask-image: linear-gradient(
-      to bottom,
-      transparent,
-      black 20%,
-      black 80%,
-      transparent
-    );
-    -webkit-mask-image: linear-gradient(
-      to bottom,
-      transparent,
-      black 20%,
-      black 80%,
-      transparent
+    background-size: 28px 28px;
+    pointer-events: none;
+  }
+
+  /* Hero background (legacy) */
+  .hero-background {
+    @apply hero-bg-vibrant;
+  }
+
+  /* Colorful card left border */
+  .card-rainbow-border-orange {
+    border-left: 4px solid oklch(0.68 0.2 48);
+  }
+  .card-rainbow-border-teal {
+    border-left: 4px solid oklch(0.55 0.15 195);
+  }
+  .card-rainbow-border-violet {
+    border-left: 4px solid oklch(0.38 0.18 270);
+  }
+  .card-rainbow-border-gold {
+    border-left: 4px solid oklch(0.72 0.18 95);
+  }
+  .card-rainbow-border-red {
+    border-left: 4px solid oklch(0.6 0.22 25);
+  }
+  .card-rainbow-border-blue {
+    border-left: 4px solid oklch(0.5 0.2 240);
+  }
+
+  /* Icon chip colors */
+  .icon-chip-orange {
+    background: oklch(0.68 0.2 48 / 0.12);
+    color: oklch(0.58 0.22 48);
+  }
+  .icon-chip-teal {
+    background: oklch(0.55 0.15 195 / 0.12);
+    color: oklch(0.42 0.18 195);
+  }
+  .icon-chip-violet {
+    background: oklch(0.38 0.18 270 / 0.12);
+    color: oklch(0.38 0.18 270);
+  }
+  .icon-chip-gold {
+    background: oklch(0.72 0.18 95 / 0.12);
+    color: oklch(0.56 0.2 80);
+  }
+  .icon-chip-red {
+    background: oklch(0.6 0.22 25 / 0.12);
+    color: oklch(0.52 0.24 25);
+  }
+  .icon-chip-blue {
+    background: oklch(0.5 0.2 240 / 0.12);
+    color: oklch(0.42 0.2 240);
+  }
+
+  /* Gradient button */
+  .btn-gradient-orange {
+    background: linear-gradient(135deg, oklch(0.68 0.2 48), oklch(0.6 0.22 25));
+    color: white;
+    border: none;
+  }
+  .btn-gradient-orange:hover {
+    background: linear-gradient(135deg, oklch(0.62 0.2 48), oklch(0.55 0.22 25));
+  }
+
+  /* Footer dark gradient */
+  .footer-gradient {
+    background: linear-gradient(
+      160deg,
+      oklch(0.18 0.06 270) 0%,
+      oklch(0.15 0.05 250) 50%,
+      oklch(0.18 0.08 195) 100%
     );
   }
 
-  .dark .hero-background {
-    background: radial-gradient(
-        circle at 20% 50%,
-        oklch(0.22 0.04 250 / 0.8),
-        transparent 50%
-      ),
-      radial-gradient(
-        circle at 80% 30%,
-        oklch(0.45 0.14 35 / 0.12),
-        transparent 40%
-      ),
-      linear-gradient(
-        135deg,
-        oklch(0.16 0.025 250) 0%,
-        oklch(0.15 0.02 250) 50%,
-        oklch(0.17 0.025 240) 100%
-      );
-  }
-
-  .dark .hero-background::before {
-    background-image: radial-gradient(
-      circle at 1px 1px,
-      oklch(0.65 0.18 35 / 0.04) 1px,
-      transparent 0
+  /* CTA gradient */
+  .cta-gradient {
+    background: linear-gradient(
+      135deg,
+      oklch(0.28 0.1 270) 0%,
+      oklch(0.35 0.12 300) 35%,
+      oklch(0.55 0.18 35) 100%
     );
-    background-size: 32px 32px;
   }
 }

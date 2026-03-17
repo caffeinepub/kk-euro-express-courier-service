@@ -36,6 +36,12 @@ export default function ContactDetails() {
   const address =
     contactDetails?.address || "Near Canara Bank, Main Rd, SBS Nagar, 144505";
 
+  const phones = [
+    { number: contactDetails?.phone || "79736-73529", tel: "+917973673529" },
+    { number: "75087-31303", tel: "+917508731303" },
+    { number: "82838-56248", tel: "+918283856248" },
+  ];
+
   return (
     <div className="space-y-6">
       <div>
@@ -53,9 +59,12 @@ export default function ContactDetails() {
           </div>
           <div>
             <p className="font-medium">Email</p>
-            <p className="text-muted-foreground">
+            <a
+              href="mailto:eurobanga@gmail.com"
+              className="text-muted-foreground hover:text-accent transition-colors"
+            >
               {contactDetails?.email || "eurobanga@gmail.com"}
-            </p>
+            </a>
           </div>
         </div>
 
@@ -63,11 +72,17 @@ export default function ContactDetails() {
           <div className="rounded-lg bg-accent/10 p-3">
             <Phone className="h-5 w-5 text-accent" />
           </div>
-          <div>
-            <p className="font-medium">Phone</p>
-            <p className="text-muted-foreground">
-              {contactDetails?.phone || "79736-73529"}
-            </p>
+          <div className="space-y-1">
+            <p className="font-medium">Phone Numbers</p>
+            {phones.map((p) => (
+              <a
+                key={p.tel}
+                href={`tel:${p.tel}`}
+                className="block text-muted-foreground hover:text-accent transition-colors font-semibold"
+              >
+                {p.number}
+              </a>
+            ))}
           </div>
         </div>
 

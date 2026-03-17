@@ -17,7 +17,10 @@ export default function SiteHeader() {
   const currentPath = router.location.pathname;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header
+      className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80"
+      style={{ borderColor: "oklch(0.9 0.01 250)" }}
+    >
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center space-x-3">
           <img
@@ -25,7 +28,7 @@ export default function SiteHeader() {
             alt="KK Euro Express"
             className="h-10 w-10 object-contain"
           />
-          <span className="font-display text-xl font-bold text-primary">
+          <span className="font-display text-xl font-bold gradient-text">
             KK Euro Express
           </span>
         </Link>
@@ -37,17 +40,30 @@ export default function SiteHeader() {
               key={link.path}
               to={link.path}
               data-ocid={`nav.${link.label.toLowerCase()}.link`}
-              className={`px-4 py-2 text-sm font-medium transition-colors rounded-md ${
+              className={`px-4 py-2 text-sm font-semibold transition-all rounded-lg ${
                 currentPath === link.path
-                  ? "bg-accent text-accent-foreground"
-                  : "text-foreground/80 hover:bg-accent/10 hover:text-foreground"
+                  ? "text-white"
+                  : "text-foreground/70 hover:text-foreground hover:bg-muted/60"
               }`}
+              style={
+                currentPath === link.path
+                  ? {
+                      background:
+                        "linear-gradient(135deg, oklch(0.68 0.2 48), oklch(0.6 0.22 25))",
+                    }
+                  : {}
+              }
             >
               {link.label}
             </Link>
           ))}
-          <Button asChild className="ml-4 bg-accent hover:bg-accent/90">
-            <Link to="/contact">Contact Us</Link>
+          <Button
+            asChild
+            className="ml-4 btn-gradient-orange text-white font-bold rounded-lg shadow-glow"
+          >
+            <Link to="/contact" data-ocid="nav.contact.button">
+              Contact Us
+            </Link>
           </Button>
           <Link
             to="/admin"
@@ -55,7 +71,7 @@ export default function SiteHeader() {
             className={`ml-2 px-3 py-1.5 text-xs font-medium transition-colors rounded-md ${
               currentPath === "/admin"
                 ? "bg-muted text-muted-foreground"
-                : "text-muted-foreground/60 hover:text-muted-foreground hover:bg-muted/50"
+                : "text-muted-foreground/50 hover:text-muted-foreground hover:bg-muted/50"
             }`}
           >
             Admin
@@ -71,17 +87,35 @@ export default function SiteHeader() {
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-            <nav className="flex flex-col space-y-4 mt-8">
+            <div className="flex items-center space-x-3 mb-8">
+              <img
+                src="/assets/generated/kk-euro-express-logo.dim_512x512.png"
+                alt="KK Euro Express"
+                className="h-8 w-8 object-contain"
+              />
+              <span className="font-display text-lg font-bold gradient-text">
+                KK Euro Express
+              </span>
+            </div>
+            <nav className="flex flex-col space-y-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
-                  className={`px-4 py-3 text-base font-medium transition-colors rounded-md ${
+                  className={`px-4 py-3 text-base font-semibold transition-colors rounded-lg ${
                     currentPath === link.path
-                      ? "bg-accent text-accent-foreground"
-                      : "text-foreground/80 hover:bg-accent/10 hover:text-foreground"
+                      ? "text-white"
+                      : "text-foreground/70 hover:bg-muted/60 hover:text-foreground"
                   }`}
+                  style={
+                    currentPath === link.path
+                      ? {
+                          background:
+                            "linear-gradient(135deg, oklch(0.68 0.2 48), oklch(0.6 0.22 25))",
+                        }
+                      : {}
+                  }
                 >
                   {link.label}
                 </Link>
@@ -90,7 +124,7 @@ export default function SiteHeader() {
                 to="/admin"
                 onClick={() => setIsOpen(false)}
                 data-ocid="nav.admin.link"
-                className="px-4 py-2 text-sm text-muted-foreground/60 hover:text-muted-foreground transition-colors rounded-md"
+                className="px-4 py-2 text-sm text-muted-foreground/50 hover:text-muted-foreground transition-colors rounded-md"
               >
                 Admin
               </Link>

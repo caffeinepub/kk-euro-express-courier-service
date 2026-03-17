@@ -61,11 +61,15 @@ export default {
                     3: 'oklch(var(--chart-3))',
                     4: 'oklch(var(--chart-4))',
                     5: 'oklch(var(--chart-5))'
-                }
+                },
+                teal: 'oklch(0.55 0.15 195)',
+                gold: 'oklch(0.72 0.18 95)',
+                violet: 'oklch(0.38 0.18 270)',
             },
             fontFamily: {
-                sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-                display: ['Outfit', 'Inter', 'system-ui', 'sans-serif'],
+                sans: ['Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
+                display: ['Bricolage Grotesque', 'system-ui', 'sans-serif'],
+                body: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
             },
             borderRadius: {
                 lg: 'var(--radius)',
@@ -74,7 +78,9 @@ export default {
             },
             boxShadow: {
                 xs: '0 1px 2px 0 rgba(0,0,0,0.05)',
-                'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
+                soft: '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
+                glow: '0 0 30px oklch(0.68 0.2 48 / 0.3)',
+                'glow-teal': '0 0 30px oklch(0.55 0.15 195 / 0.3)',
             },
             keyframes: {
                 'accordion-down': {
@@ -88,15 +94,19 @@ export default {
                 'fade-in': {
                     from: { opacity: '0', transform: 'translateY(10px)' },
                     to: { opacity: '1', transform: 'translateY(0)' }
+                },
+                'slide-up': {
+                    from: { opacity: '0', transform: 'translateY(20px)' },
+                    to: { opacity: '1', transform: 'translateY(0)' }
                 }
             },
             animation: {
                 'accordion-down': 'accordion-down 0.2s ease-out',
                 'accordion-up': 'accordion-up 0.2s ease-out',
-                'fade-in': 'fade-in 0.5s ease-out'
+                'fade-in': 'fade-in 0.5s ease-out',
+                'slide-up': 'slide-up 0.6s ease-out'
             }
         }
     },
     plugins: [typography, containerQueries, animate]
 };
-
