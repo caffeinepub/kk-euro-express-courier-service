@@ -1,27 +1,21 @@
 # KK Euro Express Courier Service
 
 ## Current State
-The website has a contact form on /contact that stores inquiries in the backend. The backend already has `getAllInquiries()` (admin-only) and `submitInquiry()` (public). There is an authorization system with admin/user roles. No admin panel exists to view inquiries.
+Admin panel at /admin requires Internet Identity login + admin role. When logged in without admin role, shows "Access Denied" with a token claim form. User cannot claim admin because no token is available in Caffeine dashboard.
 
 ## Requested Changes (Diff)
 
 ### Add
-- Admin page at /admin route showing all customer inquiries
-- Login prompt for unauthenticated users on /admin
-- Hook `useGetAllInquiries` that calls `actor.getAllInquiries()`
-- Admin link in site nav (visible only when logged in as admin, or always visible as subtle link)
-- Each inquiry displayed as a card: name, emailOrPhone, subject, message, timestamp
-- Empty state when no inquiries exist
+- Nothing new
 
 ### Modify
-- App.tsx: add /admin route
-- SiteLayout or nav: add subtle Admin link
+- Backend: Remove admin-only restriction from `getAllInquiries` — allow any authenticated (non-anonymous) caller to view inquiries
+- Frontend: Remove the "Access Denied" state and token-claim form from AdminPage — when logged in, directly show inquiries
 
 ### Remove
-- Nothing
+- Token-based admin claim UI from AdminPage
+- Access denied state from AdminPage
 
 ## Implementation Plan
-1. Create `src/frontend/src/hooks/useGetAllInquiries.ts` using react-query to call `actor.getAllInquiries()`
-2. Create `src/frontend/src/pages/AdminPage.tsx` with inquiry list, login wall, empty state
-3. Update `App.tsx` to register /admin route
-4. Add subtle "Admin" nav link to SiteLayout
+1. Update `getAllInquiries` in main.mo to only check caller is not anonymous
+2. Update AdminPage.tsx to remove unauthorized/claim flow — show inquiries for any logged-in user

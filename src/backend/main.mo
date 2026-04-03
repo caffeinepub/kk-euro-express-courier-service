@@ -43,20 +43,20 @@ actor {
 
   // Contact form functionality
   public shared func submitInquiry(name : Text, emailOrPhone : Text, subject : Text, message : Text) : async () {
-    // No authorization check - contact forms should be publicly accessible to everyone including guests
     let inquiry : ContactInquiry = {
       name;
       emailOrPhone;
       subject;
       message;
-      timestamp = 0; // In a live environment use Time.now() here
+      timestamp = 0;
     };
     inquiries.add(inquiry);
   };
 
+  // Allow any logged-in user to view inquiries (no admin token required)
   public query ({ caller }) func getAllInquiries() : async [ContactInquiry] {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #admin))) {
-      Runtime.trap("Unauthorized: Only admins can view all inquiries");
+    if (caller.isAnonymous()) {
+      Runtime.trap("unauthorized");
     };
     inquiries.toArray();
   };
