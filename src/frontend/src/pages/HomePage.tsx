@@ -200,14 +200,20 @@ export default function HomePage() {
                     }
                     @keyframes exhaustPuff {
                       0%   { opacity: 0.7; transform: translateX(0) scale(1); }
-                      100% { opacity: 0;   transform: translateX(-30px) scale(2); }
+                      100% { opacity: 0;   transform: translateX(30px) scale(2); }
                     }
                     @keyframes truckBounce {
                       0%, 100% { transform: translateY(0px); }
                       50%       { transform: translateY(-2px); }
                     }
+                    @keyframes truckDriveFlipped {
+                      0%   { transform: scaleX(-1) translateX(420px); }
+                      100% { transform: scaleX(-1) translateX(-850px); }
+                    }
                     .truck-group {
-                      animation: truckDrive 4s linear infinite;
+                      animation: truckDriveFlipped 4s linear infinite;
+                      transform-box: fill-box;
+                      transform-origin: center center;
                     }
                     .wheel-front {
                       animation: wheelSpin 0.6s linear infinite;
@@ -521,9 +527,9 @@ export default function HomePage() {
 
                 {/* === TRUCK GROUP (animates across) === */}
                 <g className="truck-group">
-                  {/* Exhaust puffs (come from left side of cab) */}
+                  {/* Exhaust puffs (come from rear/right side of cargo box after flip) */}
                   <circle
-                    cx="170"
+                    cx="510"
                     cy="272"
                     r="8"
                     fill="#94a3b8"
@@ -531,7 +537,7 @@ export default function HomePage() {
                     className="exhaust-1"
                   />
                   <circle
-                    cx="158"
+                    cx="522"
                     cy="265"
                     r="6"
                     fill="#94a3b8"
@@ -539,7 +545,7 @@ export default function HomePage() {
                     className="exhaust-2"
                   />
                   <circle
-                    cx="148"
+                    cx="532"
                     cy="260"
                     r="5"
                     fill="#94a3b8"
@@ -1105,27 +1111,27 @@ export default function HomePage() {
 
                   {/* Speed lines */}
                   <line
-                    x1="120"
+                    x1="530"
                     y1="270"
-                    x2="150"
+                    x2="560"
                     y2="270"
                     stroke="white"
                     strokeWidth="1.5"
                     strokeOpacity="0.25"
                   />
                   <line
-                    x1="110"
+                    x1="535"
                     y1="280"
-                    x2="145"
+                    x2="570"
                     y2="280"
                     stroke="white"
                     strokeWidth="1"
                     strokeOpacity="0.18"
                   />
                   <line
-                    x1="115"
+                    x1="532"
                     y1="290"
-                    x2="148"
+                    x2="565"
                     y2="290"
                     stroke="white"
                     strokeWidth="1"
