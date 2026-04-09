@@ -1,9 +1,22 @@
+import { useActor } from "@caffeineai/core-infrastructure";
 import { useQuery } from "@tanstack/react-query";
-import type { ContactInquiry } from "../backend.d";
-import { useActor } from "./useActor";
+import { createActor } from "../backend";
+
+export interface ContactInquiry {
+  name: string;
+  emailOrPhone: string;
+  subject: string;
+  message: string;
+  timestamp: bigint;
+}
+
+interface ActorWithInquiries {
+  getAllInquiries: () => Promise<ContactInquiry[]>;
+}
 
 export function useGetAllInquiries() {
-  const { actor, isFetching } = useActor();
+  const { actor: rawActor, isFetching } = useActor(createActor);
+  const actor = rawActor as unknown as ActorWithInquiries | null;
 
   return useQuery<ContactInquiry[], Error>({
     queryKey: ["inquiries"],

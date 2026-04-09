@@ -1,5 +1,6 @@
+import { useActor } from "@caffeineai/core-infrastructure";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useActor } from "./useActor";
+import { createActor } from "../backend";
 
 interface InquiryData {
   name: string;
@@ -8,8 +9,18 @@ interface InquiryData {
   message: string;
 }
 
+interface ActorWithSubmit {
+  submitInquiry: (
+    name: string,
+    emailOrPhone: string,
+    subject: string,
+    message: string,
+  ) => Promise<void>;
+}
+
 export function useSubmitInquiry() {
-  const { actor } = useActor();
+  const { actor: rawActor } = useActor(createActor);
+  const actor = rawActor as unknown as ActorWithSubmit | null;
   const queryClient = useQueryClient();
 
   return useMutation({

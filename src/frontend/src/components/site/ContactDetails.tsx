@@ -1,10 +1,23 @@
-import { useActor } from "@/hooks/useActor";
+import { useActor } from "@caffeineai/core-infrastructure";
 import { useQuery } from "@tanstack/react-query";
 import { Globe, Mail, MapPin, Phone, Share2 } from "lucide-react";
 import { useMemo } from "react";
+import { createActor } from "../../backend";
+
+interface ContactDetailsData {
+  website: string;
+  email: string;
+  phone: string;
+  address: string;
+}
+
+interface ActorWithContactDetails {
+  getContactDetails: () => Promise<ContactDetailsData>;
+}
 
 export default function ContactDetails() {
-  const { actor, isFetching } = useActor();
+  const { actor: rawActor, isFetching } = useActor(createActor);
+  const actor = rawActor as unknown as ActorWithContactDetails | null;
 
   const { data: contactDetails } = useQuery({
     queryKey: ["contactDetails"],

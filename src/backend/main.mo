@@ -5,13 +5,8 @@ import Map "mo:core/Map";
 import Order "mo:core/Order";
 import Runtime "mo:core/Runtime";
 import Principal "mo:core/Principal";
-import MixinAuthorization "authorization/MixinAuthorization";
-import AccessControl "authorization/access-control";
 
 actor {
-  let accessControlState = AccessControl.initState();
-  include MixinAuthorization(accessControlState);
-
   public type ContactInquiry = {
     name : Text;
     emailOrPhone : Text;
@@ -26,7 +21,18 @@ actor {
     };
   };
 
-  var inquiries = List.empty<ContactInquiry>();
+  // Migration: preserve accessControlState stable variable from previous version to allow upgrade.
+  // This variable is no longer used but must remain declared to prevent implicit discard error.
+  type UserRole = { #admin; #guest; #user };
+  stable var accessControlState : {
+    var adminAssigned : Bool;
+    userRoles : Map.Map<Principal, UserRole>;
+  } = {
+    var adminAssigned = false;
+    userRoles = Map.empty<Principal, UserRole>();
+  };
+
+  stable let inquiries = List.empty<ContactInquiry>();
 
   public type UserProfile = {
     name : Text;
@@ -71,22 +77,22 @@ actor {
   };
 
   public query ({ caller }) func getCallerUserProfile() : async ?UserProfile {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can access their profiles");
+    if (caller.isAnonymous()) {
+      Runtime.trap("Unauthorized: Login required");
     };
     userProfiles.get(caller);
   };
 
   public query ({ caller }) func getUserProfile(user : Principal) : async ?UserProfile {
-    if (caller != user and not AccessControl.isAdmin(accessControlState, caller)) {
+    if (caller != user) {
       Runtime.trap("Unauthorized: Can only view your own profile");
     };
     userProfiles.get(user);
   };
 
   public shared ({ caller }) func saveCallerUserProfile(profile : UserProfile) : async () {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can save profiles");
+    if (caller.isAnonymous()) {
+      Runtime.trap("Unauthorized: Login required");
     };
     userProfiles.add(caller, profile);
   };

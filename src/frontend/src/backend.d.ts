@@ -23,19 +23,11 @@ export interface ContactInquiry {
 export interface UserProfile {
     name: string;
 }
-export enum UserRole {
-    admin = "admin",
-    user = "user",
-    guest = "guest"
-}
 export interface backendInterface {
-    assignCallerUserRole(user: Principal, role: UserRole): Promise<void>;
     getAllInquiries(): Promise<Array<ContactInquiry>>;
     getCallerUserProfile(): Promise<UserProfile | null>;
-    getCallerUserRole(): Promise<UserRole>;
     getContactDetails(): Promise<ContactDetails>;
     getUserProfile(user: Principal): Promise<UserProfile | null>;
-    isCallerAdmin(): Promise<boolean>;
     saveCallerUserProfile(profile: UserProfile): Promise<void>;
     submitInquiry(name: string, emailOrPhone: string, subject: string, message: string): Promise<void>;
 }

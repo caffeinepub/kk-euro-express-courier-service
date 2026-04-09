@@ -1,0 +1,25 @@
+type UserProfile = record {name: text;};
+type ContactInquiry = 
+ record {
+   emailOrPhone: text;
+   message: text;
+   name: text;
+   subject: text;
+   timestamp: int;
+ };
+type ContactDetails = 
+ record {
+   address: text;
+   email: text;
+   phone: text;
+   website: text;
+ };
+service : {
+  getAllInquiries: () -> (vec ContactInquiry) query;
+  getCallerUserProfile: () -> (opt UserProfile) query;
+  getContactDetails: () -> (ContactDetails) query;
+  getUserProfile: (user: principal) -> (opt UserProfile) query;
+  saveCallerUserProfile: (profile: UserProfile) -> ();
+  submitInquiry: (name: text, emailOrPhone: text, subject: text, message:
+   text) -> ();
+}
